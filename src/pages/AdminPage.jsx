@@ -1,12 +1,12 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Database, RotateCcw, Save, ShieldCheck } from "lucide-react";
+import { ArrowLeft, Database, Plus, RotateCcw, Save, ShieldCheck, Trash2 } from "lucide-react";
 import { brand, coreValues, navItems, workflow } from "../data/site";
 import { achievements } from "../data/achievements";
 import { projects, resetProjects } from "../data/projects";
 import { teamMembers } from "../data/teamMembers";
-import { technologies } from "../data/technology";
+import { technologies, technologyCategories } from "../data/technology";
 import { saveContent } from "../utils/contentStorage";
 const sections = [
     ["brand", "Home / brand", brand],
@@ -41,6 +41,14 @@ export default function AdminPage() {
             }
         } else if (key === "projects" || key === "teamMembers" || key === "technologies" || key === "achievements" || key === "navItems" || key === "coreValues" || key === "workflow") {
             if (!Array.isArray(value)) throw new Error(`${sectionLabel(key)} must be a JSON array.`);
+            if (key === "technologies") {
+                value.forEach((skill, index) => {
+                    if (!skill || typeof skill !== "object") throw new Error(`Skill ${index + 1} must be an object.`);
+                    for (const field of ["name", "category", "description"]) {
+                        if (typeof skill[field] !== "string" || !skill[field].trim()) throw new Error(`Skill ${index + 1}: ${field} is required.`);
+                    }
+                    if (!Array.isArray(skill.memberIds)) throw new Error(`Skill ${index + 1}: memberIds must be an array.`);
+                });
         }
         return value;
     };
@@ -84,10 +92,41 @@ export default function AdminPage() {
     const validCount = sections.filter(([key]) => { try { parsedDrafts(key); return true; } catch { return false; } }).length;
     const activeSection = sections.find(([key]) => key === active);
     const brandDraft = (() => { try { return JSON.parse(drafts.brand); } catch { return {}; } })();
+    const technologyDraft = (() => { try { return JSON.parse(drafts.technologies); } catch { return []; } })();
     const renderBrandField = (name, label, multiline = false) => {
         const Input = multiline ? "textarea" : "input";
         return <label key={name} className="field"><span>{label}</span><Input rows={multiline ? 4 : undefined} value={brandDraft[name] ?? ""} onChange={(event) => { try { updateDraft("brand", JSON.stringify({ ...JSON.parse(drafts.brand), [name]: event.target.value }, null, 2)); } catch { updateDraft("brand", JSON.stringify({ ...brandDraft, [name]: event.target.value }, null, 2)); } }} /></label>;
     };
+    const updateTechnology = (index, field, value) => {
+        const next = technologyDraft.map((skill, skillIndex) => skillIndex === index ? { ...skill, [field]: field === "memberIds" ? value.split(",").map((id) => id.trim()).filter(Boolean) : value } : skill);
+        updateDraft("technologies", JSON.stringify(next, null, 2));
+    };
+    const addTechnology = () => {
+        updateDraft("technologies", JSON.stringify([...technologyDraft, {
+            name: "New skill",
+            category: technologyCategories[0] ?? "Frontend",
+            description: "Describe how the crew uses this skill.",
+            memberIds: [],
+        }], null, 2));
+    };
+    const removeTechnology = (index) => {
+        const skill = technologyDraft[index];
+        if (!window.confirm(`Delete “${skill?.name ?? "this skill"}”?`)) return;
+        updateDraft("technologies", JSON.stringify(technologyDraft.filter((_, skillIndex) => skillIndex !== index), null, 2));
+    };
+    const renderTechnologyEditor = () => <div className="mt-5 flex flex-col gap-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-electric/20 bg-electric/5 p-4">
+            <p className="text-sm text-ink/65">Add a skill, edit its details, or remove one. Changes are published with the Publish button.</p>
+            <button type="button" className="btn btn--ink" onClick={addTechnology}><Plus className="h-4 w-4" /> Add skill</button>
+        </div>
+        {technologyDraft.length === 0 ? <div className="rounded-xl border border-dashed border-mist p-8 text-center text-sm text-ink/55">No skills yet. Add your first skill above.</div> : technologyDraft.map((skill, index) => <article key={`${skill.name}-${index}`} className="surface grid gap-4 p-5 md:grid-cols-[1fr_1fr_auto]">
+            <label className="field"><span>Skill name</span><input value={skill.name ?? ""} onChange={(event) => updateTechnology(index, "name", event.target.value)} placeholder="React" /></label>
+            <label className="field"><span>Category</span><select value={skill.category ?? technologyCategories[0]} onChange={(event) => updateTechnology(index, "category", event.target.value)}>{technologyCategories.map((category) => <option key={category} value={category}>{category}</option>)}</select></label>
+            <button type="button" className="inline-flex h-11 items-center justify-center gap-2 self-end rounded-xl border border-coral/35 px-3 text-sm font-bold text-coral transition-colors hover:bg-coral/10 md:row-span-2" onClick={() => removeTechnology(index)}><Trash2 className="h-4 w-4" /> Delete</button>
+            <label className="field md:col-span-2"><span>Description</span><textarea rows={2} value={skill.description ?? ""} onChange={(event) => updateTechnology(index, "description", event.target.value)} placeholder="What does the team use it for?" /></label>
+            <label className="field md:col-span-2"><span>Team member IDs <small className="field-hint">comma-separated, e.g. m1, m3</small></span><input value={(skill.memberIds ?? []).join(", ")} onChange={(event) => updateTechnology(index, "memberIds", event.target.value)} placeholder="m1, m3" /></label>
+        </article>)}
+    </div>;
     return <div className="admin-console min-h-dvh bg-mist/45 pb-16">
         <header className="on-ink-deep border-b border-paper/10"><div className="shell flex flex-wrap items-center justify-between gap-5 py-7">
             <div><Link to="/" className="mb-3 inline-flex items-center gap-2 text-sm text-paper/60 hover:text-lime"><ArrowLeft className="h-4 w-4" /> Public site</Link><p className="eyebrow text-electric"><ShieldCheck className="h-3.5 w-3.5" /> Admin control room</p><h1 className="mt-2 font-display text-4xl font-bold text-paper">Content overview</h1><p className="mt-2 text-sm text-paper/60">Review, preview, and publish your portfolio content.</p></div>
@@ -106,7 +145,7 @@ export default function AdminPage() {
                     {active === "overview" ? <div><p className="font-mono text-xs uppercase tracking-[.16em] text-electric">Workspace summary</p><h2 className="mt-2 font-display text-2xl font-bold">Your content, at a glance</h2><p className="mt-2 max-w-2xl text-sm text-ink/60">Choose a section to edit. Preview opens a separate public tab using your current drafts; publishing is a separate action.</p><div className="mt-6 grid gap-3 sm:grid-cols-2">{sections.map(([key, label]) => <button key={key} type="button" onClick={() => setActive(key)} className="flex items-center justify-between rounded-xl border border-mist p-4 text-left hover:border-electric"><span className="font-semibold">{label}</span><span className={`font-mono text-[.62rem] uppercase ${dirtyKeys.includes(key) ? "text-yellow" : "text-lime"}`}>{dirtyKeys.includes(key) ? "Unsaved draft" : "Published"}</span></button>)}</div></div> : <>
                         <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="font-mono text-xs uppercase tracking-[.16em] text-electric">{dirtyKeys.includes(active) ? "Draft changes" : "Published content"}</p><h2 className="mt-1 font-display text-2xl font-bold">{activeSection?.[1]}</h2></div><div className="flex flex-wrap gap-2"><button type="button" className="btn btn--ghost" onClick={preview}>Preview</button><button type="button" className="btn" onClick={() => save()}><Save className="h-4 w-4" /> Publish</button></div></div>
                         <div className="mt-5 flex items-center justify-between gap-3"><p className="text-sm text-ink/55">{active === "brand" && !advanced ? "Edit brand fields with validation." : "Advanced mode: edit structured JSON directly."}</p><button type="button" className="font-mono text-xs font-bold uppercase tracking-wide text-electric hover:underline" onClick={() => setAdvanced((value) => !value)}>{advanced ? "Use labeled fields" : "Advanced JSON"}</button></div>
-                        {active === "brand" && !advanced ? <div className="mt-5 grid gap-4 sm:grid-cols-2">{renderBrandField("name", "Site name")}{renderBrandField("tagline", "Tagline")}{renderBrandField("altTagline", "Secondary tagline")}{renderBrandField("email", "Contact email")}{renderBrandField("location", "Location")}{renderBrandField("description", "Description", true)}</div> : <textarea className="mt-4 min-h-[26rem] w-full rounded-xl border border-mist bg-ink-deep p-4 font-mono text-sm leading-relaxed text-lime outline-none focus:ring-4 focus:ring-electric/20" value={drafts[active]} onChange={(event) => updateDraft(active, event.target.value)} spellCheck={false} aria-label={`${activeSection?.[1]} JSON`} />}
+                        {active === "brand" && !advanced ? <div className="mt-5 grid gap-4 sm:grid-cols-2">{renderBrandField("name", "Site name")}{renderBrandField("tagline", "Tagline")}{renderBrandField("altTagline", "Secondary tagline")}{renderBrandField("email", "Contact email")}{renderBrandField("location", "Location")}{renderBrandField("description", "Description", true)}</div> : active === "technologies" && !advanced ? renderTechnologyEditor() : <textarea className="mt-4 min-h-[26rem] w-full rounded-xl border border-mist bg-ink-deep p-4 font-mono text-sm leading-relaxed text-lime outline-none focus:ring-4 focus:ring-electric/20" value={drafts[active]} onChange={(event) => updateDraft(active, event.target.value)} spellCheck={false} aria-label={`${activeSection?.[1]} JSON`} />}
                     </>}
                     {message && <p className={`mt-5 rounded-xl border p-3 text-sm font-semibold ${message.toLowerCase().includes("invalid") || message.includes("required") || message.includes("must be") || message.includes("blocked") ? "border-coral/25 bg-coral/10 text-coral" : "border-electric/20 bg-electric/5 text-ink"}`} role="status">{message}</p>}
                 </section>
