@@ -1,114 +1,10 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Design tokens — FullStack Crew
-   Palette is fixed by the brand: one primary (electric), three warm
-   accents (orange / coral / yellow), three cool accents (lime / mint /
-   violet) and three neutrals. Section accents are assigned per member
-   and per project so colour always means something.
+   Design tokens - Team Vinsmokes
+   Default palette: #100001 background, #DC0208 red, #FFEF93 gold.
+   Liquid glass is the only alternate theme.
 ------------------------------------------------------------------ */
-@theme {
-  --color-electric: #4361ee;
-  --color-lime: #c8f169;
-  --color-orange: #ff6b35;
-  --color-yellow: #ffd166;
-  --color-coral: #ff5a7a;
-  --color-mint: #06d6a0;
-  --color-violet: #845ec2;
-
-  /* Light text remains available for the dark surfaces used across the site. */
-  --color-ink: #f8fafc;
-  --color-ink-deep: #0a0f1c;
-  --color-ink-soft: #111a2b;
-  --color-paper: #f8fafc;
-  --color-mist: #1a2638;
-
-  --font-display: "Space Grotesk", "Trebuchet MS", "Segoe UI", sans-serif;
-  --font-sans: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", "Consolas", ui-monospace, monospace;
-
-  --text-hero: clamp(2.6rem, 9vw, 7rem);
-  --text-hero--line-height: 0.92;
-  --text-hero--letter-spacing: -0.03em;
-  --text-display: clamp(2rem, 5.5vw, 4.25rem);
-  --text-display--line-height: 0.98;
-  --text-display--letter-spacing: -0.025em;
-  --text-title: clamp(1.55rem, 3.2vw, 2.6rem);
-  --text-title--line-height: 1.08;
-  --text-lede: clamp(1.05rem, 1.6vw, 1.35rem);
-  --text-lede--line-height: 1.55;
-
-  --radius-card: 1.25rem;
-  --radius-pill: 999px;
-
-  --shadow-lift: 0 22px 48px -24px rgb(17 24 39 / 0.45);
-  --shadow-soft: 0 10px 30px -18px rgb(17 24 39 / 0.35);
-
-  --animate-float: float 9s ease-in-out infinite;
-  --animate-float-slow: float 14s ease-in-out infinite;
-  --animate-drift: drift 18s linear infinite;
-  --animate-blink: blink 1.15s steps(2, start) infinite;
-  --animate-scroll-cue: scroll-cue 2.1s ease-in-out infinite;
-  --animate-marquee: marquee 32s linear infinite;
-  --animate-orbit: orbit 22s linear infinite;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0);
-    }
-    50% {
-      transform: translate3d(0, -18px, 0);
-    }
-  }
-  @keyframes drift {
-    0% {
-      transform: translate3d(0, 0, 0) rotate(0deg);
-    }
-    100% {
-      transform: translate3d(0, -26px, 0) rotate(12deg);
-    }
-  }
-  @keyframes blink {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
-  @keyframes scroll-cue {
-    0% {
-      transform: translateY(0);
-      opacity: 0;
-    }
-    35% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(18px);
-      opacity: 0;
-    }
-  }
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  @keyframes orbit {
-    0% {
-      transform: rotate(0deg) translateX(var(--orbit-r, 90px)) rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg) translateX(var(--orbit-r, 90px)) rotate(-360deg);
-    }
-  }
-}
-
 /* ------------------------------------------------------------------
    Base
 ------------------------------------------------------------------ */
@@ -300,7 +196,7 @@
 
   .btn--lime {
     --btn-bg: var(--color-lime);
-    --btn-fg: #0a0f1c;
+    --btn-fg: #100001;
   }
 
   .eyebrow {
@@ -429,21 +325,21 @@
 
 /* ------------------------------------------------------------------
    Theme system
-   Dark is the default. Light and glass override the same semantic surfaces
+   The brand palette is the default. Liquid glass is the only alternate surface
    so every route changes together when the theme button is used.
 ------------------------------------------------------------------ */
 :root {
-  --theme-body-bg: #070b14;
-  --theme-paper-bg: #0f192a;
-  --theme-mist-bg: #172338;
-  --theme-ink-bg: #0a0f1c;
-  --theme-surface: #121e31;
-  --theme-border: #263750;
-  --theme-field: #0d1626;
-  --theme-text: #f8fafc;
-  --theme-paper-text: #f8fafc;
-  --theme-muted: #a4b3c8;
-  --theme-ink-rgb: 10 15 28;
+  --theme-body-bg: #100001;
+  --theme-paper-bg: #210407;
+  --theme-mist-bg: #3b080c;
+  --theme-ink-bg: #100001;
+  --theme-surface: #210407;
+  --theme-border: #7d1a1e;
+  --theme-field: #180204;
+  --theme-text: #ffef93;
+  --theme-paper-text: #ffef93;
+  --theme-muted: #f3c86e;
+  --theme-ink-rgb: 16 0 1;
   --color-ink: var(--theme-text);
   --color-paper: var(--theme-paper-text);
   --color-mist: var(--theme-mist-bg);
@@ -451,20 +347,7 @@
   color-scheme: dark;
 }
 
-:root[data-theme="light"] {
-  --theme-body-bg: #f4f7fb;
-  --theme-paper-bg: #f8fafc;
-  --theme-mist-bg: #e8eef6;
-  --theme-ink-bg: #111827;
-  --theme-surface: #ffffff;
-  --theme-border: #d4deeb;
-  --theme-field: #ffffff;
-  --theme-text: #0b1220;
-  --theme-paper-text: #111827;
-  --theme-muted: #334155;
-  --theme-ink-rgb: 17 24 39;
-  color-scheme: light;
-}
+
 
 :root[data-theme="glass"] {
   --theme-body-bg: radial-gradient(circle at 15% 10%, #183c72 0, transparent 38%), radial-gradient(circle at 85% 85%, #16295b 0, transparent 42%), #050914;
@@ -481,9 +364,9 @@
   color-scheme: dark;
 }
 
-:root[data-theme="light"] .on-ink-deep {
-  background: #0a0f1c;
-  color: #f8fafc;
+:root .on-ink-deep {
+  background: var(--theme-ink-bg);
+  color: #ffef93;
 }
 
 body {
@@ -520,14 +403,14 @@ body {
 .divide-mist > :not([hidden]) ~ :not([hidden]) { border-color: var(--theme-border) !important; }
 .text-ink { color: var(--theme-text) !important; }
 .text-paper { color: var(--color-paper) !important; }
-.on-ink { background: var(--theme-ink-bg); color: #f8fafc; }
-.on-ink-deep { background: var(--theme-body-bg); color: #f8fafc; }
+.on-ink { background: var(--theme-ink-bg); color: #ffef93; }
+.on-ink-deep { background: var(--theme-body-bg); color: #ffef93; }
 
 .on-ink,
 .on-ink-deep,
 [class~="bg-ink"],
 [class*="bg-ink/"] {
-  --color-paper: #f8fafc;
+  --color-paper: #ffef93;
 }
 
 .field { color: var(--theme-text) !important; }
@@ -543,6 +426,20 @@ body {
   border-color: var(--theme-border);
   background: var(--theme-field);
   color: var(--theme-text);
+}
+
+/* Keep the admin editor readable when a utility text color is rendered with
+   an opacity suffix by the utility framework. */
+.admin-projects [class~="text-ink/45"],
+.admin-projects [class~="text-ink/50"],
+.admin-projects [class~="text-ink/55"],
+.admin-projects [class~="text-ink/60"] {
+  color: var(--theme-muted) !important;
+}
+
+.admin-projects input,
+.admin-projects textarea {
+  color: var(--theme-text) !important;
 }
 
 :root[data-theme="glass"] .surface,

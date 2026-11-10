@@ -135,7 +135,7 @@ export default function AdminProjectsPage() {
   }
 
   return (
-    <div className="min-h-dvh bg-mist/45 pb-20">
+    <div className="admin-projects min-h-dvh bg-mist/45 pb-20">
       <header className="on-ink-deep border-b border-paper/10">
         <div className="shell flex flex-wrap items-center justify-between gap-5 py-7">
           <div>

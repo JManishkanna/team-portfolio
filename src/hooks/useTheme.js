@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-export const THEMES = ["dark", "light", "glass"];
+export const THEMES = ["default", "glass"];
 const THEME_KEY = "team-vinsmokes.theme";
 
 function getInitialTheme() {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "default";
   const saved = window.localStorage.getItem(THEME_KEY);
-  return THEMES.includes(saved) ? saved : "dark";
+  return THEMES.includes(saved) ? saved : "default";
 }
 
 export function useTheme() {
@@ -14,7 +14,7 @@ export function useTheme() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    document.documentElement.style.colorScheme = theme === "light" ? "light" : "dark";
+    document.documentElement.style.colorScheme = "dark";
     window.localStorage.setItem(THEME_KEY, theme);
   }, [theme]);
 
