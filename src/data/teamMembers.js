@@ -13,7 +13,7 @@ export const DEMONSTRATION_NOTICE = "";
 export const teamMembers = [
     {
         id: "m1",
-        slug: "manish",
+        slug: "manishkanna-j",
         name: "Manish Kanna J",
         role: "Full-Stack Developer · Team Lead",
         shortBio: "I build responsive web applications and the scalable backend systems behind them, then make sure both ship on the same day.",
