@@ -96,10 +96,10 @@ export const teamMembers = [
     {
         id: "m3",
         slug: "sanjay",
-        name: "Monesh kumar M",
+        name: "Moneshkumar M",
         role: "Frontend Developer · UI/UX",
         shortBio: "I build the interfaces: motion, layout and interaction detail that make our products feel deliberate instead of assembled.",
-        biography: "Monesh kumar M owns the browser side of the crew. He builds the design tokens, the component library and the animation layer, then argues for the keyboard shortcut nobody asked for. His reviews are mostly about spacing, focus states and whether something responds in under 200 milliseconds.",
+        biography: "Moneshkumar M owns the browser side of the crew. He builds the design tokens, the component library and the animation layer, then argues for the keyboard shortcut nobody asked for. His reviews are mostly about spacing, focus states and whether something responds in under 200 milliseconds.",
         location: "Hyderabad, India",
         photo: "/images/avatars/sanjay.svg",
         skills: ["React", "JavaScript", "Bootstrap", "Framer Motion", "GSAP", "Figma", "WCAG", "Vite"],
