@@ -441,7 +441,13 @@
   --theme-border: #263750;
   --theme-field: #0d1626;
   --theme-text: #f8fafc;
+  --theme-paper-text: #f8fafc;
+  --theme-muted: #a4b3c8;
   --theme-ink-rgb: 10 15 28;
+  --color-ink: var(--theme-text);
+  --color-paper: var(--theme-paper-text);
+  --color-mist: var(--theme-mist-bg);
+  --color-ink-soft: var(--theme-field);
   color-scheme: dark;
 }
 
@@ -454,6 +460,8 @@
   --theme-border: #d4deeb;
   --theme-field: #ffffff;
   --theme-text: #111827;
+  --theme-paper-text: #111827;
+  --theme-muted: #475569;
   --theme-ink-rgb: 17 24 39;
   color-scheme: light;
 }
@@ -467,6 +475,8 @@
   --theme-border: rgb(194 223 255 / 0.2);
   --theme-field: rgb(2 10 28 / 0.55);
   --theme-text: #edf6ff;
+  --theme-paper-text: #edf6ff;
+  --theme-muted: #afc6de;
   --theme-ink-rgb: 3 8 22;
   color-scheme: dark;
 }
@@ -474,6 +484,9 @@
 body {
   background: var(--theme-body-bg);
   color: var(--theme-text);
+  font-family: var(--font-sans);
+  font-kerning: normal;
+  font-optical-sizing: auto;
   transition: background 350ms ease, color 250ms ease;
 }
 
@@ -501,9 +514,24 @@ body {
 .border-mist { border-color: var(--theme-border) !important; }
 .divide-mist > :not([hidden]) ~ :not([hidden]) { border-color: var(--theme-border) !important; }
 .text-ink { color: var(--theme-text) !important; }
-.text-paper { color: #f8fafc !important; }
+.text-paper { color: var(--color-paper) !important; }
 .on-ink { background: var(--theme-ink-bg); color: #f8fafc; }
 .on-ink-deep { background: var(--theme-body-bg); color: #f8fafc; }
+
+.on-ink,
+.on-ink-deep,
+[class~="bg-ink"],
+[class*="bg-ink/"] {
+  --color-paper: #f8fafc;
+}
+
+.field { color: var(--theme-text) !important; }
+.field-hint { color: var(--theme-muted) !important; }
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: color-mix(in oklab, var(--theme-text) 48%, transparent);
+}
 
 .field input,
 .field textarea {
