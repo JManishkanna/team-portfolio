@@ -20,7 +20,7 @@ export const navItems = [
     { label: "Contact", to: "/contact", accent: "#FF5A7A" },
 ];
 export const cta = { label: "Let's Collaborate", to: "/contact" };
-export const heroHeadline = ["WE", "BUILD", "THE", "DIGITAL", "FUTURE."];
+export const heroHeadline = ["THREE", "MINDS.", "ONE", "COMMAND", "CENTER."];
 export const coreValues = [
     {
         title: "Ship, then polish",

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-export const THEMES = ["default", "glass"];
+export const THEMES = ["command", "glass"];
 const THEME_KEY = "team-vinsmokes.theme";
 
 function getInitialTheme() {
-  if (typeof window === "undefined") return "default";
+  if (typeof window === "undefined") return "command";
   const saved = window.localStorage.getItem(THEME_KEY);
-  return THEMES.includes(saved) ? saved : "default";
+  return THEMES.includes(saved) ? saved : "command";
 }
 
 export function useTheme() {
