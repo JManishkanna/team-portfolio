@@ -19,8 +19,9 @@ export const technologyCategories: TechnologyCategory[] = [
 export const technologies: Technology[] = [
   // Frontend
   { name: "React", category: "Frontend", description: "Component model and hooks for every interface we ship.", memberIds: ["m1", "m3"] },
+  { name: "Bootstrap", category: "Frontend", description: "Responsive layout and accessible interface primitives.", memberIds: ["m1", "m3"] },
   { name: "TypeScript", category: "Frontend", description: "Types shared between client code and API contracts.", memberIds: ["m1", "m3"] },
-  { name: "Tailwind CSS", category: "Frontend", description: "Token-driven utility styling, no bespoke CSS per page.", memberIds: ["m1", "m3"] },
+  { name: "Tailwind CSS", category: "Frontend", description: "Legacy utility styling retained for existing page components.", memberIds: ["m1", "m3"] },
   { name: "Vite", category: "Frontend", description: "Dev server and build pipeline, including this site.", memberIds: ["m3"] },
   { name: "Framer Motion", category: "Frontend", description: "Entrances, page transitions and layout animation.", memberIds: ["m3"] },
   { name: "GSAP ScrollTrigger", category: "Frontend", description: "Pinned sequences and scroll-linked timelines.", memberIds: ["m3"] },

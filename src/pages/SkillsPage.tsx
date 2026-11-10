@@ -125,11 +125,11 @@ export default function SkillsPage() {
           })}
 
           <div className="grid gap-10 border-t border-mist pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <SectionHeader
+          <SectionHeader
               eyebrow="How we use it"
               accent="#4361EE"
               title={<span>THE STACK IS A DECISION, NOT A SHOPPING LIST.</span>}
-              lede="Java and Spring Boot on the server, React and TypeScript in the browser, MySQL when relationships matter and MongoDB when they do not. We pick the boring option and spend the saved time on the parts users feel."
+            lede="Java and Spring Boot on the server, React and JavaScript in the browser, Bootstrap for responsive UI, and MySQL when relationships matter. We pick the boring option and spend the saved time on the parts users feel."
             />
             <Reveal delay={0.1}>
               <div className="flex flex-wrap gap-3 lg:justify-end">

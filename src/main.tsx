@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import App from "./App";
 import { ErrorBoundary } from "./components/common/ErrorBoundary";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/globals.css";
 
 const container = document.getElementById("root");

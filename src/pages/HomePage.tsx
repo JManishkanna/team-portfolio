@@ -19,7 +19,7 @@ import { projects } from "../data/projects";
 import { technologies } from "../data/technology";
 import { crewStats, projectsForMember } from "../utils/data";
 
-const heroTech = ["React", "TypeScript", "Java", "Spring Boot", "MySQL", "Tailwind"];
+const heroTech = ["React", "JavaScript", "Java", "Spring Boot", "Bootstrap", "MySQL"];
 
 function HeroCodeCard() {
   const lines = [

@@ -107,7 +107,7 @@ export function Footer() {
             © {year} {brand.name}. {brand.altTagline}
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <span className="font-mono text-[0.75rem]">React · Vite · TypeScript · Tailwind · Motion · GSAP</span>
+            <span className="font-mono text-[0.75rem]">React · JavaScript · Bootstrap · Java · Spring Boot</span>
             <button
               type="button"
               onClick={() => globalThis.scrollTo({ top: 0, behavior: "smooth" })}
