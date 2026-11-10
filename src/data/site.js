@@ -18,6 +18,7 @@ export const navItems = [
     { label: "Skills", to: "/skills", accent: "#845EC2" },
     { label: "Achievements", to: "/achievements", accent: "#FFD166" },
     { label: "Contact", to: "/contact", accent: "#FF5A7A" },
+    { label: "Login", to: "/login", accent: "#25C7D9" },
 ];
 export const cta = { label: "Let's Collaborate", to: "/contact" };
 export const heroHeadline = ["THREE", "MINDS.", "ONE", "COMMAND", "CENTER."];
