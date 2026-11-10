@@ -12,12 +12,12 @@ export const brand = {
     location: "Bengaluru, India",
 };
 export const navItems = [
-    { label: "Home", to: "/", accent: "#FF263F" },
-    { label: "Team", to: "/team", accent: "#FF263F" },
-    { label: "Projects", to: "/projects", accent: "#FF263F" },
-    { label: "Skills", to: "/skills", accent: "#FF263F" },
-    { label: "Achievements", to: "/achievements", accent: "#FF263F" },
-    { label: "Contact", to: "/contact", accent: "#FF263F" },
+    { label: "Home", to: "/", accent: "#4361EE" },
+    { label: "Team", to: "/team", accent: "#06D6A0" },
+    { label: "Projects", to: "/projects", accent: "#FF6B35" },
+    { label: "Skills", to: "/skills", accent: "#845EC2" },
+    { label: "Achievements", to: "/achievements", accent: "#FFD166" },
+    { label: "Contact", to: "/contact", accent: "#FF5A7A" },
 ];
 export const cta = { label: "Let's Collaborate", to: "/contact" };
 export const heroHeadline = ["THREE", "MINDS.", "ONE", "COMMAND", "CENTER."];
@@ -25,22 +25,22 @@ export const coreValues = [
     {
         title: "Ship, then polish",
         body: "Every sprint ends with something a human can click. Refactors follow evidence, not guesswork.",
-        accent: "#FF263F",
+        accent: "#4361EE",
     },
     {
         title: "Own the whole stack",
         body: "The person who draws the screen is comfortable writing the migration behind it.",
-        accent: "#FF263F",
+        accent: "#06D6A0",
     },
     {
         title: "Accessible by default",
         body: "Keyboard paths, contrast and reduced motion are part of the definition of done, not a cleanup pass.",
-        accent: "#FF263F",
+        accent: "#FF6B35",
     },
     {
         title: "Review generously",
         body: "Pull requests are conversations. We explain the why, and we change our minds on evidence.",
-        accent: "#FF263F",
+        accent: "#845EC2",
     },
 ];
 export const workflow = [
@@ -48,31 +48,31 @@ export const workflow = [
         step: "01",
         title: "Frame",
         body: "We turn the request into a one-page brief: who uses it, what changes, how we measure it.",
-        accent: "#FF263F",
+        accent: "#4361EE",
     },
     {
         step: "02",
         title: "Design",
         body: "Flows before pixels. Components are chosen from a shared token set so screens stay consistent.",
-        accent: "#FF263F",
+        accent: "#FF5A7A",
     },
     {
         step: "03",
         title: "Build",
         body: "Typed contracts between client and API, feature branches, small diffs, CI on every push.",
-        accent: "#FF263F",
+        accent: "#06D6A0",
     },
     {
         step: "04",
         title: "Harden",
         body: "Unit and end-to-end checks, responsive sweeps at 320–1920px, keyboard-only walkthroughs.",
-        accent: "#FF263F",
+        accent: "#845EC2",
     },
     {
         step: "05",
         title: "Ship & watch",
         body: "Deploy, then read logs and analytics for a week. Fix what the data says, not what we assumed.",
-        accent: "#FF263F",
+        accent: "#FF6B35",
     },
 ];
 hydrateObject("brand", brand);

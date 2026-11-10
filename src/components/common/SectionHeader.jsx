@@ -8,7 +8,7 @@ export function vars(entries) {
     }
     return result;
 }
-export const accentStyle = (_accent) => vars({ "--accent": "var(--color-electric)" });
+export const accentStyle = (accent) => vars({ "--accent": accent });
 export function Badge({ children, accent }) {
     return (_jsx("span", { className: "chip", style: accent ? accentStyle(accent) : undefined, children: children }));
 }

@@ -1,21 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink-deep: #0f172a;
-  --color-ink: #f1f5f9;
-  --color-paper: #141e32;
-  --color-mist: #1b2940;
-  --color-electric: #ff263f;
-  --color-lime: #ff263f;
-  --color-violet: #ff263f;
-  --color-coral: #ff263f;
-  --color-mint: #ff263f;
-  --color-yellow: #ff263f;
+  --color-ink-deep: #111827;
+  --color-ink: #182033;
+  --color-paper: #fffefa;
+  --color-mist: #e9ece6;
+  --color-electric: #4361ee;
+  --color-lime: #c8f169;
+  --color-violet: #845ec2;
+  --color-coral: #ff5a7a;
+  --color-mint: #06d6a0;
+  --color-yellow: #ffd166;
+  --color-orange: #ff6b35;
 }
 
 /* ------------------------------------------------------------------
    Design tokens - Team Vinsmokes
-   Red Demon palette: navy #0f172a, crimson #ff263f, and light text.
+   Crew palette: warm off-white, charcoal navy, lime, and vivid supporting accents.
 ------------------------------------------------------------------ */
 /* ------------------------------------------------------------------
    Base
@@ -155,8 +156,8 @@
   }
 
   .btn {
-    --btn-bg: var(--color-electric);
-    --btn-fg: #ffffff;
+    --btn-bg: var(--color-lime);
+    --btn-fg: #111827;
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
@@ -337,25 +338,25 @@
 
 /* ------------------------------------------------------------------
    Theme system
-   Red Demon is the fixed palette used across every route.
+   The fixed palette used across every route.
 ------------------------------------------------------------------ */
 :root {
-  --theme-body-bg: #0f172a;
-  --theme-paper-bg: #141e32;
-  --theme-mist-bg: #1b2940;
-  --theme-ink-bg: #0b1220;
-  --theme-surface: #141e32;
-  --theme-border: rgb(255 38 63 / 0.22);
-  --theme-field: #0b1426;
-  --theme-text: #f1f5f9;
-  --theme-paper-text: #f8fafc;
-  --theme-muted: #a8b3c5;
-  --theme-ink-rgb: 15 23 42;
+  --theme-body-bg: #f7f8f4;
+  --theme-paper-bg: #fffefa;
+  --theme-mist-bg: #e9ece6;
+  --theme-ink-bg: #111827;
+  --theme-surface: #fffefa;
+  --theme-border: rgb(17 24 39 / 0.12);
+  --theme-field: #fffefa;
+  --theme-text: #182033;
+  --theme-paper-text: #182033;
+  --theme-muted: #667085;
+  --theme-ink-rgb: 17 24 39;
   --color-ink: var(--theme-text);
   --color-paper: var(--theme-paper-text);
   --color-mist: var(--theme-mist-bg);
   --color-ink-soft: var(--theme-field);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 
@@ -445,7 +446,7 @@ body {
 .text-ink { color: var(--theme-text) !important; }
 .text-paper { color: var(--color-paper) !important; }
 .on-ink { background: var(--theme-ink-bg); color: #f8fafc; }
-.on-ink-deep { background: var(--theme-body-bg); color: #f8fafc; }
+.on-ink-deep { background: var(--theme-ink-bg); color: #f8fafc; }
 
 .on-ink,
 .on-ink-deep,
@@ -500,8 +501,9 @@ body {
   backdrop-filter: blur(16px) saturate(130%);
 }
 
-:root[data-theme="command"] .card-accent:hover {
-  box-shadow: 0 0 0 1px rgb(255 38 63 / 0.2), 0 0 32px rgb(255 38 63 / 0.18), 0 22px 48px rgb(0 0 0 / 0.3);
+:root[data-theme="command"] .card-accent:hover,
+.card-accent:hover {
+  box-shadow: 0 0 0 1px rgb(200 241 105 / 0.3), 0 16px 38px rgb(17 24 39 / 0.12);
 }
 
 :root[data-theme="command"] .on-ink-deep::after {
@@ -510,12 +512,12 @@ body {
   inset: -40% 0 auto;
   height: 2px;
   pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgb(255 38 63 / 0.75), transparent);
+  background: linear-gradient(90deg, transparent, rgb(200 241 105 / 0.75), transparent);
   animation: command-scan 8s linear infinite;
 }
 
 .admin-console {
-  background-image: linear-gradient(135deg, rgb(255 38 63 / 0.035), transparent 38%);
+  background-image: linear-gradient(135deg, rgb(200 241 105 / 0.09), transparent 38%);
 }
 
 .admin-console .on-ink-deep::after {
@@ -528,8 +530,8 @@ body {
 }
 
 .rounded-pill svg path:first-of-type { stroke: #f8fafc; }
-.rounded-pill svg path:nth-of-type(2) { stroke: #ff263f; }
-.rounded-pill svg circle { fill: #ff263f; }
+.rounded-pill svg path:nth-of-type(2) { stroke: #c8f169; }
+.rounded-pill svg circle { fill: #c8f169; }
 
 /* Team portrait labels inherit each specialist's cyan/violet/lime accent. */
 .card-accent > a > div > span {
