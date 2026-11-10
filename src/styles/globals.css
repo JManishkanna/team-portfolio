@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink-deep: #111827;
-  --color-ink: #182033;
-  --color-paper: #fffefa;
-  --color-mist: #e9ece6;
-  --color-electric: #4361ee;
-  --color-lime: #c8f169;
-  --color-violet: #845ec2;
-  --color-coral: #ff5a7a;
-  --color-mint: #06d6a0;
-  --color-yellow: #ffd166;
-  --color-orange: #ff6b35;
+  --color-ink-deep: #08151b;
+  --color-ink: #10232b;
+  --color-paper: #f2f8f6;
+  --color-mist: #203a43;
+  --color-electric: #25c7d9;
+  --color-lime: #d8ed3f;
+  --color-violet: #8878ff;
+  --color-coral: #ff718a;
+  --color-mint: #54e2b5;
+  --color-yellow: #f3d75b;
+  --color-orange: #ff975e;
 }
 
 /* ------------------------------------------------------------------
    Design tokens - Team Vinsmokes
-   Crew palette: warm off-white, charcoal navy, lime, and vivid supporting accents.
+   Palette sampled from the reference mark: deep blue-teal, cyan and lime.
 ------------------------------------------------------------------ */
 /* ------------------------------------------------------------------
    Base
@@ -341,22 +341,21 @@
    The fixed palette used across every route.
 ------------------------------------------------------------------ */
 :root {
-  --theme-body-bg: #f7f8f4;
-  --theme-paper-bg: #fffefa;
-  --theme-mist-bg: #e9ece6;
-  --theme-ink-bg: #111827;
-  --theme-surface: #fffefa;
-  --theme-border: rgb(17 24 39 / 0.12);
-  --theme-field: #fffefa;
-  --theme-text: #182033;
-  --theme-paper-text: #182033;
-  --theme-muted: #667085;
-  --theme-ink-rgb: 17 24 39;
+  --theme-body-bg: #0b1b21;
+  --theme-paper-bg: #142a34;
+  --theme-mist-bg: #203a43;
+  --theme-ink-bg: #08151b;
+  --theme-surface: #142a34;
+  --theme-border: rgb(143 186 191 / 0.18);
+  --theme-field: #0d2028;
+  --theme-text: #e8f2f1;
+  --theme-paper-text: #f2f8f6;
+  --theme-muted: #a4b8bc;
+  --theme-ink-rgb: 8 21 27;
   --color-ink: var(--theme-text);
-  --color-paper: var(--theme-paper-text);
   --color-mist: var(--theme-mist-bg);
   --color-ink-soft: var(--theme-field);
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 
@@ -407,10 +406,10 @@ body {
 
 /* Bootstrap button tokens follow the same palette as the site's button variants. */
 :root .btn {
-  --bs-btn-bg: var(--btn-bg, var(--color-electric));
-  --bs-btn-border-color: var(--btn-bg, var(--color-electric));
+  --bs-btn-bg: var(--btn-bg, var(--color-lime));
+  --bs-btn-border-color: var(--btn-bg, var(--color-lime));
   --bs-btn-color: var(--btn-fg, var(--theme-text));
-  --bs-btn-hover-bg: color-mix(in oklab, var(--btn-bg, var(--color-electric)) 82%, black);
+  --bs-btn-hover-bg: color-mix(in oklab, var(--btn-bg, var(--color-lime)) 82%, black);
   --bs-btn-hover-border-color: var(--bs-btn-hover-bg);
   --bs-btn-hover-color: var(--btn-fg, var(--theme-text));
   --bs-btn-active-bg: var(--bs-btn-hover-bg);
@@ -517,7 +516,7 @@ body {
 }
 
 .admin-console {
-  background-image: linear-gradient(135deg, rgb(200 241 105 / 0.09), transparent 38%);
+  background-image: linear-gradient(135deg, rgb(216 237 63 / 0.05), rgb(37 199 217 / 0.035) 34%, transparent 68%);
 }
 
 .admin-console .on-ink-deep::after {
@@ -530,8 +529,8 @@ body {
 }
 
 .rounded-pill svg path:first-of-type { stroke: #f8fafc; }
-.rounded-pill svg path:nth-of-type(2) { stroke: #c8f169; }
-.rounded-pill svg circle { fill: #c8f169; }
+.rounded-pill svg path:nth-of-type(2) { stroke: #d8ed3f; }
+.rounded-pill svg circle { fill: #25c7d9; }
 
 /* Team portrait labels inherit each specialist's cyan/violet/lime accent. */
 .card-accent > a > div > span {

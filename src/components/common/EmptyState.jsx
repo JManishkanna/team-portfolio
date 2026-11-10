@@ -10,6 +10,7 @@ export function EmptyState({ title, body, actionTo, actionLabel, }) {
  * demo and a claim.
  */
 export function DemoNotice({ children }) {
+    if (!children) return null;
     return (_jsxs("p", { className: "demo-flag", role: "note", children: [_jsx(Info, { className: "h-4 w-4", "aria-hidden": "true" }), _jsx("span", { children: children ??
                     "Demonstration content. Replace it with your team's real work before publishing." })] }));
 }

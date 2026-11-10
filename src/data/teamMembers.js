@@ -9,7 +9,7 @@ import { hydrateArray } from "../utils/contentStorage";
  * the UI only renders social links that resolve to a real profile.
  * ---------------------------------------------------------------------------
  */
-export const DEMONSTRATION_NOTICE = "Demonstration content — replace the roster in src/data/teamMembers.ts with your real team before publishing.";
+export const DEMONSTRATION_NOTICE = "";
 export const teamMembers = [
     {
         id: "m1",
