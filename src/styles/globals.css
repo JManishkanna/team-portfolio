@@ -459,9 +459,9 @@
   --theme-surface: #ffffff;
   --theme-border: #d4deeb;
   --theme-field: #ffffff;
-  --theme-text: #111827;
+  --theme-text: #0b1220;
   --theme-paper-text: #111827;
-  --theme-muted: #475569;
+  --theme-muted: #334155;
   --theme-ink-rgb: 17 24 39;
   color-scheme: light;
 }
@@ -479,6 +479,11 @@
   --theme-muted: #afc6de;
   --theme-ink-rgb: 3 8 22;
   color-scheme: dark;
+}
+
+:root[data-theme="light"] .on-ink-deep {
+  background: #0a0f1c;
+  color: #f8fafc;
 }
 
 body {
