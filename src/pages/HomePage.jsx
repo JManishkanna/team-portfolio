@@ -20,18 +20,26 @@ import { projects } from "../data/projects";
 import { technologies } from "../data/technology";
 import { crewStats, projectsForMember } from "../utils/data";
 const heroTech = ["React", "JavaScript", "Java", "Spring Boot", "Bootstrap", "MySQL"];
+function HeroStatusPanel({ project }) {
+    const stack = project?.technologies?.slice(0, 4) ?? heroTech.slice(0, 4);
+    return <section className="surface relative overflow-hidden border border-electric/25 p-5 shadow-[0_24px_70px_-35px_rgba(42,199,242,.4)] sm:p-6" aria-label="Crew live status">
+        {new URLSearchParams(window.location.search).get("adminPreview") === "1" && <p className="mb-4 rounded-lg border border-violet/30 bg-violet/10 px-3 py-2 font-mono text-xs text-paper">Draft preview · not published</p>}
+        <div className="flex items-center justify-between gap-3 border-b border-paper/10 pb-4">
+            <div><p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-paper/45">Crew control / 01</p><h2 className="mt-1 font-display text-xl font-bold text-paper">Crew snapshot</h2></div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-lime/25 bg-lime/10 px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-lime"><span className="h-2 w-2 rounded-full bg-lime" />Roster loaded</span>
+        </div>
+        <div className="grid grid-cols-3 divide-x divide-paper/10 py-5 text-center">
+            {[{ value: crewStats.developers, label: "specialists" }, { value: crewStats.projects, label: "missions" }, { value: crewStats.technologies, label: "tools" }].map((stat) => <div key={stat.label}><p className="font-display text-2xl font-bold text-electric">{stat.value}</p><p className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-paper/45">{stat.label}</p></div>)}
+        </div>
+        <div className="rounded-xl border border-paper/10 bg-ink/55 p-4">
+            <div className="flex items-center justify-between gap-3"><span className="font-mono text-[0.63rem] uppercase tracking-[0.16em] text-violet">Featured mission</span><span className="font-mono text-[0.62rem] text-paper/40">{project?.year ?? "ACTIVE"}</span></div>
+            <p className="mt-1 font-display text-lg font-bold text-paper">{project?.title ?? "Building what’s next"}</p>
+            <ul className="mt-3 flex flex-wrap gap-2">{stack.map((tech) => <li key={tech} className="rounded-md border border-electric/15 bg-electric/5 px-2 py-1 font-mono text-[0.62rem] text-paper/65">{tech}</li>)}</ul>
+        </div>
+    </section>;
+}
 function HeroCodeCard() {
-    const lines = [
-        { indent: 0, parts: [{ t: "const", c: "#845EC2" }, { t: " crew ", c: "#F8FAFC" }, { t: "=", c: "#FFD166" }, { t: " {", c: "#94A3B8" }] },
-        { indent: 1, parts: [{ t: "stack:", c: "#06D6A0" }, { t: ' ["react", "spring", "mysql"]', c: "#C8F169" }, { t: ",", c: "#94A3B8" }] },
-        { indent: 1, parts: [{ t: "members:", c: "#06D6A0" }, { t: " teamMembers.length", c: "#FFD166" }, { t: ",", c: "#94A3B8" }] },
-        { indent: 1, parts: [{ t: "shapes:", c: "#06D6A0" }, { t: " async () => {", c: "#FF6B35" }] },
-        { indent: 2, parts: [{ t: "const", c: "#845EC2" }, { t: " build ", c: "#F8FAFC" }, { t: "=", c: "#FFD166" }, { t: " await ship(spec)", c: "#4361EE" }, { t: ";", c: "#94A3B8" }] },
-        { indent: 2, parts: [{ t: "return", c: "#845EC2" }, { t: " build.reviewedBy(", c: "#F8FAFC" }, { t: "peer", c: "#FF5A7A" }, { t: ");", c: "#94A3B8" }] },
-        { indent: 1, parts: [{ t: " },", c: "#FF6B35" }] },
-        { indent: 0, parts: [{ t: "};", c: "#94A3B8" }] },
-    ];
-    return (_jsxs("div", { className: "surface overflow-hidden border-ink/10 bg-ink/95 shadow-[0_30px_60px_-30px_rgba(0,0,0,.7)] backdrop-blur", children: [_jsxs("div", { className: "flex items-center gap-2 border-b border-paper/10 px-4 py-3", children: [_jsx("span", { className: "h-3 w-3 rounded-full bg-coral" }), _jsx("span", { className: "h-3 w-3 rounded-full bg-yellow" }), _jsx("span", { className: "h-3 w-3 rounded-full bg-mint" }), _jsx("span", { className: "ml-2 font-mono text-[0.7rem] text-paper/45", children: "crew.config.ts" })] }), _jsxs("pre", { className: "overflow-x-auto p-4 font-mono text-[0.72rem] leading-relaxed sm:text-[0.8rem]", children: [lines.map((line, index) => (_jsxs("div", { className: "flex gap-3", children: [_jsx("span", { className: "w-4 shrink-0 select-none text-right text-paper/25", children: index + 1 }), _jsx("span", { style: { paddingLeft: `${line.indent * 1.25}rem` }, children: line.parts.map((part, partIndex) => (_jsx("span", { style: { color: part.c }, children: part.t }, partIndex))) })] }, index))), _jsx("span", { className: "ml-7 inline-block h-4 w-2 animate-blink bg-lime align-middle", "aria-hidden": "true" })] })] }));
+    return <HeroStatusPanel project={projects.find((project) => project.featured) ?? projects[0]} />;
 }
 export default function HomePage() {
     useSeo({

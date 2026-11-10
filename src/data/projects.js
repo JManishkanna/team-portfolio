@@ -171,6 +171,10 @@ function readStoredProjects() {
     if (typeof window === "undefined")
         return null;
     try {
+        if (new URLSearchParams(window.location.search).get("adminPreview") === "1") {
+            const preview = JSON.parse(window.sessionStorage.getItem("fullstack-crew.admin-preview") ?? "{}");
+            if (Array.isArray(preview.projects)) return preview.projects;
+        }
         const value = JSON.parse(window.localStorage.getItem(PROJECTS_STORAGE_KEY) ?? "null");
         return Array.isArray(value) ? value : null;
     }

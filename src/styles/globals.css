@@ -488,6 +488,24 @@ body {
   animation: command-scan 8s linear infinite;
 }
 
+.admin-console {
+  background-image: linear-gradient(135deg, rgb(42 199 242 / 0.035), transparent 38%), linear-gradient(315deg, rgb(155 92 255 / 0.025), transparent 34%);
+}
+
+.admin-console .on-ink-deep::after {
+  display: none;
+}
+
+.admin-console .surface {
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+  backdrop-filter: none;
+}
+
+/* Team portrait labels inherit each specialist's cyan/violet/lime accent. */
+.card-accent > a > div > span {
+  color: var(--accent) !important;
+}
+
 @keyframes command-scan {
   from { transform: translateY(0); opacity: 0; }
   12%, 72% { opacity: 1; }
@@ -508,5 +526,18 @@ body {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+
+  .card-accent:hover,
+  .card-accent:hover img,
+  .group:hover img {
+    transform: none !important;
+  }
+
+  .command-scan,
+  .animate-pulse,
+  .animate-marquee,
+  .animate-scroll-cue {
+    animation: none !important;
   }
 }

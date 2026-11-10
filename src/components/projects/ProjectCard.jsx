@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { projectContributors } from "../../utils/data";
+import { achievements } from "../../data/achievements";
 import { TechChips, accentStyle } from "../common/SectionHeader";
 import { staggerItem } from "../animations/Reveal";
 const ratioBySize = {
@@ -11,7 +12,33 @@ const ratioBySize = {
     default: "aspect-[16/10]",
     compact: "aspect-[4/3]",
 };
-export function ProjectCard({ project, size = "default", accent = "#FF6B35", hideContributors }) {
+export function ProjectCard({ project, size = "default", accent = "#2AC7F2", hideContributors }) {
+    const [imageFailed, setImageFailed] = useState(false);
+    const people = projectContributors(project);
+    const detailPath = `/project/${project.slug}`;
+    const metric = achievements.find((entry) => entry.title.toLowerCase().startsWith(`${project.title.toLowerCase()}:`));
+    const goal = project.detail?.problem ?? project.description;
+    const compact = size === "compact";
+    return <article className={`card-accent group relative overflow-hidden rounded-[var(--radius-card)] border border-mist bg-paper shadow-[var(--shadow-soft)] ${size === "featured" ? "lg:grid lg:grid-cols-[0.85fr_1.15fr]" : ""}`} style={accentStyle(accent)}>
+        <div className="relative overflow-hidden">
+            {imageFailed ? <div className={`${ratioBySize[size]} w-full bg-ink`} style={{ background: `linear-gradient(135deg, ${accent}, #050914)` }} aria-hidden="true" /> : <img src={project.thumbnail} alt={`${project.title} mission artwork`} width={1200} height={800} loading="lazy" decoding="async" onError={() => setImageFailed(true)} className={`${ratioBySize[size]} w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]`} />}
+            <span className="absolute left-3 top-3 rounded-md border border-electric/25 bg-ink/85 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.15em] text-paper backdrop-blur">Mission / {project.year}</span>
+        </div>
+        <div className={`flex flex-col gap-4 ${compact ? "p-4" : "p-5 md:p-7"}`}>
+            <div><p className="font-mono text-[0.64rem] uppercase tracking-[0.18em] text-electric">{project.categories?.[0] ?? "Product build"}</p><h3 className={`mt-1 font-display font-bold ${size === "featured" ? "text-3xl" : "text-xl"}`}><Link to={detailPath} className="transition-colors hover:text-[var(--accent)]">{project.title}</Link></h3></div>
+            {!compact && <p className="text-sm leading-relaxed text-ink/70"><span className="font-semibold text-ink/85">Mission goal: </span>{goal}</p>}
+            <div className="rounded-lg border border-mist bg-ink/5 p-3"><p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-ink/45">Recorded outcome</p><p className="mt-1 text-sm font-semibold text-ink/75">{metric?.summary ?? "No measurable outcome recorded for this mission."}</p></div>
+            <div><p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-ink/45">Stack</p><ul className="mt-2 flex flex-wrap gap-1.5">{project.technologies.slice(0, compact ? 4 : 7).map((tech) => <li key={tech} className="rounded-md border border-mist px-2 py-1 font-mono text-[0.65rem] text-ink/65">{tech}</li>)}</ul></div>
+            {!hideContributors && people.length > 0 && <ul className="mt-auto flex flex-col gap-2 border-t border-mist pt-3">{people.map((person) => {
+                const contribution = project.detail?.contributions?.find((entry) => entry.memberId === person.id)?.note;
+                return <li key={person.id} className="flex items-start gap-2 text-sm"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full" style={{ background: person.accent }} /><span><Link to={`/team/${person.slug}`} className="font-bold hover:text-[var(--accent)]">{person.name}</Link>{contribution && !compact && <span className="block text-xs text-ink/55">{contribution}</span>}</span></li>;
+            })}</ul>}
+            <Link to={detailPath} className="inline-flex w-fit items-center gap-1.5 text-sm font-bold text-[var(--accent)]">Open mission case study <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+        </div>
+    </article>;
+}
+
+function LegacyProjectCard({ project, size = "default", accent = "#FF6B35", hideContributors }) {
     const [imageFailed, setImageFailed] = useState(false);
     const people = projectContributors(project);
     const detailPath = `/project/${project.slug}`;
