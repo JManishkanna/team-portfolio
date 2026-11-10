@@ -428,73 +428,100 @@
 }
 
 /* ------------------------------------------------------------------
-   Dark theme
-   The component markup already uses semantic paper / mist surfaces. Keep
-   those names so the theme applies consistently across every route.
+   Theme system
+   Dark is the default. Light and glass override the same semantic surfaces
+   so every route changes together when the theme button is used.
 ------------------------------------------------------------------ */
-body {
+:root {
+  --theme-body-bg: #070b14;
+  --theme-paper-bg: #0f192a;
+  --theme-mist-bg: #172338;
+  --theme-ink-bg: #0a0f1c;
+  --theme-surface: #121e31;
+  --theme-border: #263750;
+  --theme-field: #0d1626;
+  --theme-text: #f8fafc;
+  --theme-ink-rgb: 10 15 28;
   color-scheme: dark;
 }
 
-.bg-paper {
-  background-color: #0f192a !important;
+:root[data-theme="light"] {
+  --theme-body-bg: #f4f7fb;
+  --theme-paper-bg: #f8fafc;
+  --theme-mist-bg: #e8eef6;
+  --theme-ink-bg: #111827;
+  --theme-surface: #ffffff;
+  --theme-border: #d4deeb;
+  --theme-field: #ffffff;
+  --theme-text: #111827;
+  --theme-ink-rgb: 17 24 39;
+  color-scheme: light;
 }
 
-.bg-mist {
-  background-color: #172338 !important;
+:root[data-theme="glass"] {
+  --theme-body-bg: radial-gradient(circle at 15% 10%, #183c72 0, transparent 38%), radial-gradient(circle at 85% 85%, #16295b 0, transparent 42%), #050914;
+  --theme-paper-bg: rgb(21 42 78 / 0.42);
+  --theme-mist-bg: rgb(16 34 67 / 0.58);
+  --theme-ink-bg: rgb(3 8 22 / 0.72);
+  --theme-surface: rgb(255 255 255 / 0.08);
+  --theme-border: rgb(194 223 255 / 0.2);
+  --theme-field: rgb(2 10 28 / 0.55);
+  --theme-text: #edf6ff;
+  --theme-ink-rgb: 3 8 22;
+  color-scheme: dark;
 }
 
-.bg-ink {
-  background-color: #0a0f1c !important;
+body {
+  background: var(--theme-body-bg);
+  color: var(--theme-text);
+  transition: background 350ms ease, color 250ms ease;
 }
 
-[class~="bg-ink/10"] { background-color: rgb(10 15 28 / 0.1) !important; }
-[class~="bg-ink/50"] { background-color: rgb(10 15 28 / 0.5) !important; }
-[class~="bg-ink/55"] { background-color: rgb(10 15 28 / 0.55) !important; }
-[class~="bg-ink/60"] { background-color: rgb(10 15 28 / 0.6) !important; }
-[class~="bg-ink/70"] { background-color: rgb(10 15 28 / 0.7) !important; }
-[class~="bg-ink/80"] { background-color: rgb(10 15 28 / 0.8) !important; }
-[class~="bg-ink/85"] { background-color: rgb(10 15 28 / 0.85) !important; }
-[class~="bg-ink/92"] { background-color: rgb(10 15 28 / 0.92) !important; }
-[class~="bg-ink/95"] { background-color: rgb(10 15 28 / 0.95) !important; }
+.bg-paper { background: var(--theme-paper-bg) !important; }
+.bg-mist { background: var(--theme-mist-bg) !important; }
+.bg-ink { background: var(--theme-ink-bg) !important; }
+
+[class~="bg-ink/10"] { background-color: rgb(var(--theme-ink-rgb) / 0.1) !important; }
+[class~="bg-ink/50"] { background-color: rgb(var(--theme-ink-rgb) / 0.5) !important; }
+[class~="bg-ink/55"] { background-color: rgb(var(--theme-ink-rgb) / 0.55) !important; }
+[class~="bg-ink/60"] { background-color: rgb(var(--theme-ink-rgb) / 0.6) !important; }
+[class~="bg-ink/70"] { background-color: rgb(var(--theme-ink-rgb) / 0.7) !important; }
+[class~="bg-ink/80"] { background-color: rgb(var(--theme-ink-rgb) / 0.8) !important; }
+[class~="bg-ink/85"] { background-color: rgb(var(--theme-ink-rgb) / 0.85) !important; }
+[class~="bg-ink/92"] { background-color: rgb(var(--theme-ink-rgb) / 0.92) !important; }
+[class~="bg-ink/95"] { background-color: rgb(var(--theme-ink-rgb) / 0.95) !important; }
 
 .surface {
-  background: #121e31;
-  border-color: #263750;
-  color: #f8fafc;
+  background: var(--theme-surface);
+  border-color: var(--theme-border);
+  color: var(--theme-text);
+  transition: background 350ms ease, border-color 350ms ease, box-shadow 350ms ease;
 }
 
-.border-mist {
-  border-color: #263750 !important;
-}
-
-.divide-mist > :not([hidden]) ~ :not([hidden]) {
-  border-color: #263750 !important;
-}
-
-.text-ink {
-  color: #f8fafc !important;
-}
-
-.text-paper {
-  color: #f8fafc !important;
-}
-
-.on-ink {
-  background: #0d1626;
-  color: #f8fafc;
-}
-
-.on-ink-deep {
-  background: #070b14;
-  color: #f8fafc;
-}
+.border-mist { border-color: var(--theme-border) !important; }
+.divide-mist > :not([hidden]) ~ :not([hidden]) { border-color: var(--theme-border) !important; }
+.text-ink { color: var(--theme-text) !important; }
+.text-paper { color: #f8fafc !important; }
+.on-ink { background: var(--theme-ink-bg); color: #f8fafc; }
+.on-ink-deep { background: var(--theme-body-bg); color: #f8fafc; }
 
 .field input,
 .field textarea {
-  border-color: #2a3b56;
-  background: #0d1626;
-  color: #f8fafc;
+  border-color: var(--theme-border);
+  background: var(--theme-field);
+  color: var(--theme-text);
+}
+
+:root[data-theme="glass"] .surface,
+:root[data-theme="glass"] .on-ink,
+:root[data-theme="glass"] .on-ink-deep {
+  border-color: var(--theme-border);
+  backdrop-filter: blur(22px) saturate(135%);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+}
+
+:root[data-theme="glass"] .surface {
+  box-shadow: 0 18px 55px rgb(0 0 0 / 0.18), inset 0 1px rgb(255 255 255 / 0.12);
 }
 
 /* ------------------------------------------------------------------
