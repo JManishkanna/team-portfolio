@@ -1,0 +1,34 @@
+{
+  "name": "fullstack-crew",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Team portfolio website for FullStack Crew with dynamically routed individual developer portfolios.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json",
+    "sitemap": "node scripts/generate-sitemap.mjs"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "7.0.2",
+    "framer-motion": "14.9.1",
+    "gsap": "3.15.1",
+    "lucide-react": "1.68.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-hook-form": "7.91.0",
+    "react-router-dom": "7.18.5",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.2.1",
+    "tailwindcss": "4.3.4",
+    "typescript": "5.9.3",
+    "vite": "8.3.5"
+  }
+}

@@ -1,0 +1,32 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# Env files — commit only .env.example
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+*.tsbuildinfo
+.vite
+
+# Generated from VITE_SITE_URL by `npm run sitemap`
+public/sitemap.xml
+public/robots.txt
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db

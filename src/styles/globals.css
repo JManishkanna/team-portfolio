@@ -1,0 +1,444 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens — FullStack Crew
+   Palette is fixed by the brand: one primary (electric), three warm
+   accents (orange / coral / yellow), three cool accents (lime / mint /
+   violet) and three neutrals. Section accents are assigned per member
+   and per project so colour always means something.
+------------------------------------------------------------------ */
+@theme {
+  --color-electric: #4361ee;
+  --color-lime: #c8f169;
+  --color-orange: #ff6b35;
+  --color-yellow: #ffd166;
+  --color-coral: #ff5a7a;
+  --color-mint: #06d6a0;
+  --color-violet: #845ec2;
+
+  --color-ink: #111827;
+  --color-ink-deep: #0a0f1c;
+  --color-ink-soft: #1c2536;
+  --color-paper: #f8fafc;
+  --color-mist: #e9edf3;
+
+  --font-display: "Space Grotesk", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-sans: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Consolas", ui-monospace, monospace;
+
+  --text-hero: clamp(2.6rem, 9vw, 7rem);
+  --text-hero--line-height: 0.92;
+  --text-hero--letter-spacing: -0.03em;
+  --text-display: clamp(2rem, 5.5vw, 4.25rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.025em;
+  --text-title: clamp(1.55rem, 3.2vw, 2.6rem);
+  --text-title--line-height: 1.08;
+  --text-lede: clamp(1.05rem, 1.6vw, 1.35rem);
+  --text-lede--line-height: 1.55;
+
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
+
+  --shadow-lift: 0 22px 48px -24px rgb(17 24 39 / 0.45);
+  --shadow-soft: 0 10px 30px -18px rgb(17 24 39 / 0.35);
+
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-float-slow: float 14s ease-in-out infinite;
+  --animate-drift: drift 18s linear infinite;
+  --animate-blink: blink 1.15s steps(2, start) infinite;
+  --animate-scroll-cue: scroll-cue 2.1s ease-in-out infinite;
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-orbit: orbit 22s linear infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -18px, 0);
+    }
+  }
+  @keyframes drift {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate3d(0, -26px, 0) rotate(12deg);
+    }
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes scroll-cue {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    35% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(18px);
+      opacity: 0;
+    }
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg) translateX(var(--orbit-r, 90px)) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(var(--orbit-r, 90px)) rotate(-360deg);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-electric);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .on-ink:focus-visible {
+    outline-color: var(--color-lime);
+  }
+
+  ::selection {
+    background: var(--color-lime);
+    color: var(--color-ink);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Component classes (plain CSS on purpose: single source of truth
+   for the accent-driven cards and buttons)
+------------------------------------------------------------------ */
+@layer components {
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: rgb(17 24 39 / 0.72);
+  }
+
+  .field-hint {
+    font-weight: 500;
+    color: rgb(17 24 39 / 0.45);
+  }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+    border: 1px solid var(--color-mist);
+    border-radius: 0.75rem;
+    background: var(--color-paper);
+    padding: 0.75rem 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+
+  .field textarea { resize: vertical; }
+
+  .shell {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.1rem, 4.5vw, 3.5rem);
+  }
+
+  .stack-pad {
+    padding-block: clamp(3.75rem, 9vw, 8.5rem);
+  }
+
+  .on-ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  .on-ink-deep {
+    background: var(--color-ink-deep);
+    color: var(--color-paper);
+  }
+
+  .surface {
+    background: var(--color-paper);
+    border: 1px solid var(--color-mist);
+    border-radius: var(--radius-card);
+  }
+
+  .btn {
+    --btn-bg: var(--color-electric);
+    --btn-fg: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.85rem 1.45rem;
+    border-radius: var(--radius-pill);
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    transition:
+      transform 180ms cubic-bezier(0.2, 0.7, 0.3, 1),
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+    will-change: transform;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .btn:active {
+    transform: translateY(0) scale(0.985);
+  }
+
+  .btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn--ghost {
+    --btn-bg: transparent;
+    --btn-fg: currentColor;
+    box-shadow: inset 0 0 0 2px currentColor;
+  }
+
+  .btn--ghost:hover {
+    background: color-mix(in oklab, currentColor 12%, transparent);
+  }
+
+  .btn--ink {
+    --btn-bg: var(--color-ink);
+    --btn-fg: var(--color-paper);
+  }
+
+  .btn--lime {
+    --btn-bg: var(--color-lime);
+    --btn-fg: var(--color-ink);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent, var(--color-electric));
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: color-mix(in oklab, var(--accent, var(--color-electric)) 14%, transparent);
+    color: color-mix(in oklab, var(--accent, var(--color-electric)) 72%, var(--color-ink));
+    transition:
+      background-color 200ms ease,
+      color 200ms ease,
+      transform 200ms ease;
+  }
+
+  .card-accent {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    transition:
+      transform 320ms cubic-bezier(0.2, 0.7, 0.3, 1),
+      box-shadow 320ms ease,
+      border-color 320ms ease;
+  }
+
+  .card-accent::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid color-mix(in oklab, var(--accent, var(--color-electric)) 40%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease;
+  }
+
+  @media (hover: hover) {
+    .card-accent:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .card-accent:hover::after {
+      opacity: 1;
+    }
+  }
+
+  .underline-link {
+    position: relative;
+    display: inline-block;
+    padding-block: 0.35rem;
+    font-weight: 600;
+    transition: color 180ms ease;
+  }
+
+  .underline-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--accent, var(--color-electric));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 260ms cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+
+  .underline-link:hover::after,
+  .underline-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgb(148 163 184 / 0.16) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(148 163 184 / 0.16) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .dot-field {
+    background-image: radial-gradient(rgb(17 24 39 / 0.13) 1.4px, transparent 1.4px);
+    background-size: 22px 22px;
+  }
+
+  .on-ink .dot-field,
+  .on-ink-deep .dot-field {
+    background-image: radial-gradient(rgb(248 250 252 / 0.16) 1.4px, transparent 1.4px);
+  }
+
+  .rule {
+    height: 1px;
+    background: color-mix(in oklab, currentColor 15%, transparent);
+    border: 0;
+  }
+
+  .demo-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    background: color-mix(in oklab, var(--color-yellow) 34%, var(--color-paper));
+    color: #6b4b00;
+    border: 1px solid color-mix(in oklab, var(--color-yellow) 70%, transparent);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Motion policy
+------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="PulseBoard cover artwork">
+  <defs>
+    <linearGradient id="pb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1c"/><stop offset="1" stop-color="#1b2a5e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#pb)"/>
+  <g stroke="#4361EE" stroke-opacity="0.35" stroke-width="2">
+    <path d="M0 200H1200M0 400H1200M0 600H1200M300 0V800M600 0V800M900 0V800"/>
+  </g>
+  <path d="M0 480 L160 480 L220 300 L300 620 L380 420 L470 500 L560 180 L650 640 L740 400 L840 460 L920 260 L1020 560 L1110 440 L1200 440"
+        fill="none" stroke="#C8F169" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="560" cy="180" r="22" fill="#FF5A7A"/>
+  <circle cx="920" cy="260" r="16" fill="#FFD166"/>
+  <rect x="80" y="90" width="260" height="70" rx="18" fill="#4361EE" fill-opacity="0.55"/>
+  <rect x="860" y="640" width="270" height="70" rx="18" fill="#06D6A0" fill-opacity="0.5"/>
+</svg>

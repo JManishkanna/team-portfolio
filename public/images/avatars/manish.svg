@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Placeholder portrait for Manish">
+  <defs>
+    <linearGradient id="ink-manish" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1c"/>
+      <stop offset="1" stop-color="#1c2536"/>
+    </linearGradient>
+    <pattern id="dots-manish" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2" fill="#f8fafc" fill-opacity="0.14"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="1000" fill="url(#ink-manish)"/>
+  <rect width="800" height="1000" fill="url(#dots-manish)"/>
+  <circle cx="600" cy="250" r="215" fill="#4361EE" fill-opacity="0.62"/>
+  <rect x="-70" y="700" width="430" height="430" rx="70" transform="rotate(-16 145 915)" fill="#C8F169" fill-opacity="0.86"/>
+  <path d="M40 660 L760 380" stroke="#f8fafc" stroke-opacity="0.22" stroke-width="3"/>
+  <text x="400" y="530" text-anchor="middle" font-family="'Space Grotesk','Trebuchet MS',sans-serif" font-size="330" font-weight="700" fill="#f8fafc">M</text>
+  <text x="400" y="640" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="34" letter-spacing="14" fill="#C8F169">FULL-STACK</text>
+  <text x="400" y="925" text-anchor="middle" font-family="'Space Grotesk','Trebuchet MS',sans-serif" font-size="62" font-weight="600" letter-spacing="8" fill="#0a0f1c">MANISH</text>
+</svg>

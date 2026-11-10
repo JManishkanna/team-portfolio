@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="CodeCanvas cover artwork">
+  <defs>
+    <linearGradient id="cc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14102b"/><stop offset="1" stop-color="#3a1d3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#cc)"/>
+  <rect x="90" y="90" width="560" height="420" rx="26" fill="#0a0f1c" fill-opacity="0.75" stroke="#845EC2" stroke-width="5"/>
+  <g fill="#C8F169" fill-opacity="0.85">
+    <rect x="130" y="140" width="300" height="20" rx="10"/>
+    <rect x="130" y="185" width="430" height="20" rx="10" fill="#FFD166"/>
+    <rect x="170" y="230" width="360" height="20" rx="10" fill="#4361EE"/>
+    <rect x="170" y="275" width="240" height="20" rx="10" fill="#06D6A0"/>
+    <rect x="130" y="320" width="400" height="20" rx="10" fill="#FF5A7A"/>
+    <rect x="130" y="365" width="180" height="20" rx="10"/>
+  </g>
+  <g>
+    <path d="M700 250l30 90 88-24Z" fill="#FF6B35"/>
+    <text x="745" y="370" font-family="'JetBrains Mono',monospace" font-size="30" fill="#FF6B35">sanjay</text>
+    <path d="M430 470l30 90 88-24Z" fill="#06D6A0"/>
+    <text x="475" y="590" font-family="'JetBrains Mono',monospace" font-size="30" fill="#06D6A0">aarav</text>
+  </g>
+  <rect x="640" y="520" width="470" height="200" rx="26" fill="#f8fafc" fill-opacity="0.08" stroke="#f8fafc" stroke-opacity="0.3" stroke-width="3"/>
+  <g stroke="#f8fafc" stroke-opacity="0.5" stroke-width="8" stroke-linecap="round">
+    <path d="M690 620l-40 40 40 40"/><path d="M980 620l40 40-40 40"/>
+  </g>
+</svg>
