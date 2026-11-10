@@ -1,8 +1,9 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { RootLayout } from "./components/layout/RootLayout";
 import { PageSkeleton } from "./components/common/PageSkeleton";
 import HomePage from "./pages/HomePage";
+import { isAdminAuthenticated } from "./utils/adminAuth";
 
 // Home and 404 stay in the entry chunk so the first paint and bad-slug fallback
 // never wait on a second request. Everything else code-splits per route.
@@ -17,7 +18,18 @@ const AchievementsPage = lazy(() => import("./pages/AchievementsPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const AdminProjectsPage = lazy(() => import("./pages/AdminProjectsPage"));
 const AdminPage = lazy(() => import("./pages/AdminPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const AdminLoginPage = lazy(() => import("./pages/AdminLoginPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+
+function AdminGuard() {
+  const location = useLocation();
+  return isAdminAuthenticated() ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/ADMIN/login" replace state={{ from: location.pathname }} />
+  );
+}
 
 export default function App() {
   return (
@@ -37,9 +49,14 @@ export default function App() {
           <Route path="skills" element={<SkillsPage />} />
           <Route path="achievements" element={<AchievementsPage />} />
           <Route path="contact" element={<ContactPage />} />
-          <Route path="admin/projects" element={<AdminProjectsPage />} />
-          <Route path="admin" caseSensitive element={<AdminPage />} />
-          <Route path="ADMIN" caseSensitive element={<AdminPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="admin/login" caseSensitive element={<AdminLoginPage />} />
+          <Route path="ADMIN/login" caseSensitive element={<AdminLoginPage />} />
+          <Route element={<AdminGuard />}>
+            <Route path="admin/projects" element={<AdminProjectsPage />} />
+            <Route path="admin" caseSensitive element={<AdminPage />} />
+            <Route path="ADMIN" caseSensitive element={<AdminPage />} />
+          </Route>
           <Route path="404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

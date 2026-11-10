@@ -11,10 +11,10 @@ export default function DeveloperContactPage() {
   const { member } = useMemberFromParams();
 
   useSeo({
-    title: member ? `Contact ${member.name} | ${member.role} | FullStack Crew` : "Contact | FullStack Crew",
+    title: member ? `Contact ${member.name} | ${member.role} | Team Vinsmokes` : "Contact | Team Vinsmokes",
     description: member
-      ? `Send a message to ${member.name}, ${member.role} on the FullStack Crew team.`
-      : "Contact a FullStack Crew developer.",
+      ? `Send a message to ${member.name}, ${member.role} on the Team Vinsmokes team.`
+      : "Contact a Team Vinsmokes developer.",
     path: member ? `/team/${member.slug}/contact` : "/team",
   });
 

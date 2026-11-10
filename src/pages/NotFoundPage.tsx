@@ -8,7 +8,7 @@ import { teamMembers } from "../data/teamMembers";
 export default function NotFoundPage() {
   useSeo({
     title: "Page not found",
-    description: "The page you requested does not exist in the FullStack Crew portfolio.",
+    description: "The page you requested does not exist in the Team Vinsmokes portfolio.",
     path: "/404",
   });
 

@@ -17,7 +17,7 @@ export default function AchievementsPage() {
   useSeo({
     title: `${brand.name} — Achievements`,
     description:
-      "Milestones from the FullStack Crew: shipped products, tooling the team maintains, and engineering results worth pointing at.",
+      "Milestones from Team Vinsmokes: shipped products, tooling the team maintains, and engineering results worth pointing at.",
     path: "/achievements",
   });
 

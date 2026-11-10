@@ -18,7 +18,7 @@ export default function LoginPage() {
         </Link>
         <p className="eyebrow text-electric"><LogIn className="h-3.5 w-3.5" /> Member access</p>
         <h1 id="login-heading" className="mt-3 font-display text-display">Welcome back.</h1>
-        <p className="mt-3 text-ink/65">Sign in to continue to your FullStack Crew workspace.</p>
+        <p className="mt-3 text-ink/65">Sign in to continue to your Team Vinsmokes workspace.</p>
         <form onSubmit={submit} className="mt-8 flex flex-col gap-5">
           <label className="field">Email<input type="email" name="email" required autoComplete="email" placeholder="you@example.com" /></label>
           <label className="field">Password<input type="password" name="password" required autoComplete="current-password" placeholder="••••••••" /></label>

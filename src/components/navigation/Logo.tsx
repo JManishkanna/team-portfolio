@@ -7,7 +7,7 @@ export function Logo({ compact = false, tone = "paper" }: { compact?: boolean; t
   return (
     <Link
       to="/"
-      aria-label="FullStack Crew — home"
+      aria-label="Team Vinsmokes — home"
       className="group inline-flex items-center gap-2.5 rounded-pill"
     >
       <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-ink shadow-[0_6px_18px_-8px_rgba(17,24,39,.7)]">

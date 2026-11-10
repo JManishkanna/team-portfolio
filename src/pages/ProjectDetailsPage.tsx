@@ -18,10 +18,10 @@ export default function ProjectDetailsPage() {
   const project = getProjectBySlug(slug);
 
   useSeo({
-    title: project ? `${project.title} | ${project.categories[0]} | FullStack Crew` : "Project not found",
+    title: project ? `${project.title} | ${project.categories[0]} | Team Vinsmokes` : "Project not found",
     description: project
       ? `${project.description} Built with ${project.technologies.slice(0, 4).join(", ")}.`
-      : "This project does not exist in the FullStack Crew portfolio.",
+      : "This project does not exist in the Team Vinsmokes portfolio.",
     path: project ? `/project/${project.slug}` : "/projects",
   });
 

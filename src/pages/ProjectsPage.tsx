@@ -16,7 +16,7 @@ const accentCycle = ["#FF6B35", "#845EC2", "#06D6A0", "#4361EE", "#FF5A7A", "#FF
 export default function ProjectsPage() {
   useSeo({
     title: `${brand.name} — Projects`,
-    description: `Team projects from FullStack Crew: realtime dashboards, multi-tenant APIs, storefronts and developer tooling. ${crewStats.projects} builds with full case studies.`,
+    description: `Team projects from Team Vinsmokes: realtime dashboards, multi-tenant APIs, storefronts and developer tooling. ${crewStats.projects} builds with full case studies.`,
     path: "/projects",
   });
 

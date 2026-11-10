@@ -15,7 +15,7 @@ import { DemoNotice } from "../components/common/EmptyState";
 export default function TeamPage() {
   useSeo({
     title: `${brand.name} — Our Team`,
-    description: `Meet the ${crewStats.developers} FullStack Crew developers. Every profile links to an individual portfolio with skills, projects and contact details.`,
+    description: `Meet the ${crewStats.developers} Team Vinsmokes developers. Every profile links to an individual portfolio with skills, projects and contact details.`,
     path: "/team",
   });
 

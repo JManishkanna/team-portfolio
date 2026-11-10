@@ -35,7 +35,7 @@ export default function ContactPage() {
   useSeo({
     title: `${brand.name} — Contact`,
     description:
-      "Brief the FullStack Crew on a project: full-stack applications, APIs, database work and frontend builds. Reach the team or an individual developer directly.",
+      "Brief Team Vinsmokes on a project: full-stack applications, APIs, database work and frontend builds. Reach the team or an individual developer directly.",
     path: "/contact",
   });
 

@@ -13,9 +13,9 @@ export default function DeveloperProjectsPage() {
   const { member } = useMemberFromParams();
 
   useSeo({
-    title: member ? `${member.name} — Projects | FullStack Crew` : "Projects | FullStack Crew",
+    title: member ? `${member.name} — Projects | Team Vinsmokes` : "Projects | Team Vinsmokes",
     description: member
-      ? `Projects built by ${member.name} (${member.role}) with FullStack Crew, including their specific contribution to each one.`
+      ? `Projects built by ${member.name} (${member.role}) with Team Vinsmokes, including their specific contribution to each one.`
       : "Developer project list.",
     path: member ? `/team/${member.slug}/projects` : "/team",
   });

@@ -21,8 +21,8 @@ export default function DeveloperPortfolioPage() {
 
   useSeo({
     title: member
-      ? `${member.name} | ${member.role} | FullStack Crew`
-      : "Developer not found | FullStack Crew",
+      ? `${member.name} | ${member.role} | Team Vinsmokes`
+      : "Developer not found | Team Vinsmokes",
     description: member
       ? `${member.shortBio} Skills: ${member.skills.slice(0, 5).join(", ")}.`
       : "No developer matches this portfolio URL.",

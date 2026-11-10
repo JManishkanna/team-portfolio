@@ -30,7 +30,7 @@ function monogram(name: string) {
 export default function SkillsPage() {
   useSeo({
     title: `${brand.name} — Technology Stack`,
-    description: `The full technology stack FullStack Crew works with: frontend, backend, database, DevOps, testing, design and collaboration tools — with the developer behind each one.`,
+    description: `The full technology stack Team Vinsmokes works with: frontend, backend, database, DevOps, testing, design and collaboration tools — with the developer behind each one.`,
     path: "/skills",
   });
 

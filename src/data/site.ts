@@ -2,7 +2,7 @@ import type { NavItem } from "../types";
 import { hydrateArray, hydrateObject } from "../utils/contentStorage";
 
 export const brand = {
-  name: "FullStack Crew",
+  name: "Team Vinsmokes",
   tagline: "WE DESIGN. WE BUILD. WE SHIP.",
   altTagline: "Different Minds. One Stack. Infinite Possibilities.",
   description:

@@ -18,12 +18,12 @@ export const teamMembers: TeamMember[] = [
   {
     id: "m1",
     slug: "manish",
-    name: "Manish",
+    name: "Manish Kanna J",
     role: "Full-Stack Developer · Team Lead",
     shortBio:
       "I build responsive web applications and the scalable backend systems behind them, then make sure both ship on the same day.",
     biography:
-      "Manish coordinates the crew: he turns a rough idea into a build plan, splits it into work that can land in a week, and reviews the parts he is not writing himself. He moved from Java services to React frontends and never gave up either, which is why most of the team's architecture notes start with a database diagram.",
+      "Manish Kanna J coordinates the crew: he turns a rough idea into a build plan, splits it into work that can land in a week, and reviews the parts he is not writing himself. He moved from Java services to React frontends and never gave up either, which is why most of the team's architecture notes start with a database diagram.",
     photo: "/images/avatars/manish.svg",
     location: "Bengaluru, India",
     skills: [
@@ -70,12 +70,12 @@ export const teamMembers: TeamMember[] = [
   {
     id: "m2",
     slug: "aarav",
-    name: "Aarav",
+    name: "Sivakumar A",
     role: "Backend & Database Developer",
     shortBio:
       "I design the Java services and MySQL schemas the rest of the team builds against, and I care what happens on row one million.",
     biography:
-      "Aarav owns the server side of the crew's work: Spring Boot services, security configuration, migrations and the query plans nobody else wants to read. He is the one who adds the index before the demo, and the one who can explain why the endpoint is slow.",
+      "Sivakumar A owns the server side of the crew's work: Spring Boot services, security configuration, migrations and the query plans nobody else wants to read. He is the one who adds the index before the demo, and the one who can explain why the endpoint is slow.",
     location: "Chennai, India",
     photo: "/images/avatars/aarav.svg",
     skills: ["Java", "Spring Boot", "Spring Security", "MySQL", "Redis", "JUnit", "Docker", "Maven", "Linux"],
@@ -110,12 +110,12 @@ export const teamMembers: TeamMember[] = [
   {
     id: "m3",
     slug: "sanjay",
-    name: "Sanjay",
+    name: "Monesh kumar M",
     role: "Frontend Developer · UI/UX",
     shortBio:
       "I build the interfaces: motion, layout and interaction detail that make our products feel deliberate instead of assembled.",
     biography:
-      "Sanjay owns the browser side of the crew. He builds the design tokens, the component library and the animation layer, then argues for the keyboard shortcut nobody asked for. His reviews are mostly about spacing, focus states and whether something responds in under 200 milliseconds.",
+      "Monesh kumar M owns the browser side of the crew. He builds the design tokens, the component library and the animation layer, then argues for the keyboard shortcut nobody asked for. His reviews are mostly about spacing, focus states and whether something responds in under 200 milliseconds.",
     location: "Hyderabad, India",
     photo: "/images/avatars/sanjay.svg",
     skills: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "GSAP", "Figma", "WCAG", "Vite"],
