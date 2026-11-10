@@ -594,3 +594,10 @@ body {
     animation: none !important;
   }
 }
+
+/* Keep all text free of browser and utility-generated underlines. */
+*,
+*::before,
+*::after {
+  text-decoration: none !important;
+}
