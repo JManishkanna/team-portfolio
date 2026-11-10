@@ -61,6 +61,7 @@ export const teamMembers = [
     {
         id: "m2",
         slug: "sivakumar-a",
+        aliases: ["aarav"],
         name: "Sivakumar A",
         role: "Backend & Data Developer",
         shortBio: "I design the Java services and MySQL schemas the rest of the team builds against, and I care what happens on row one million.",
@@ -96,6 +97,7 @@ export const teamMembers = [
     {
         id: "m3",
         slug: "moneshkumar-m",
+        aliases: ["sanjay"],
         name: "Moneshkumar M",
         role: "Frontend Developer · UI/UX",
         shortBio: "I build the interfaces: motion, layout and interaction detail that make our products feel deliberate instead of assembled.",

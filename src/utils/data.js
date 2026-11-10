@@ -7,7 +7,7 @@ const projectBySlug = new Map(projects.map((p) => [p.slug, p]));
 export function getMemberBySlug(slug) {
     if (!slug)
         return undefined;
-    return teamMembers.find((m) => m.slug === slug);
+    return teamMembers.find((m) => m.slug === slug || m.aliases?.includes(slug));
 }
 export function getMemberById(id) {
     return memberById.get(id);
