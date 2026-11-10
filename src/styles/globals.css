@@ -2,8 +2,8 @@
 
 /* ------------------------------------------------------------------
    Design tokens - Team Vinsmokes
-   Default palette: #100001 background, #DC0208 red, #FFEF93 gold.
-   Liquid glass is the only alternate theme.
+   Primary palette: command center navy, electric cyan, violet and lime.
+   Liquid glass remains available as the alternate theme.
 ------------------------------------------------------------------ */
 /* ------------------------------------------------------------------
    Base
@@ -325,21 +325,21 @@
 
 /* ------------------------------------------------------------------
    Theme system
-   The brand palette is the default. Liquid glass is the only alternate surface
+   The command center palette is the default. Liquid glass is the only alternate surface
    so every route changes together when the theme button is used.
 ------------------------------------------------------------------ */
 :root {
-  --theme-body-bg: #100001;
-  --theme-paper-bg: #210407;
-  --theme-mist-bg: #3b080c;
-  --theme-ink-bg: #100001;
-  --theme-surface: #210407;
-  --theme-border: #7d1a1e;
-  --theme-field: #180204;
-  --theme-text: #ffef93;
-  --theme-paper-text: #ffef93;
-  --theme-muted: #f3c86e;
-  --theme-ink-rgb: 16 0 1;
+  --theme-body-bg: #050914;
+  --theme-paper-bg: #0c1830;
+  --theme-mist-bg: #102344;
+  --theme-ink-bg: #050914;
+  --theme-surface: rgb(12 24 48 / 0.9);
+  --theme-border: rgb(42 199 242 / 0.28);
+  --theme-field: #081226;
+  --theme-text: #e9f7ff;
+  --theme-paper-text: #e9f7ff;
+  --theme-muted: #9bb5cf;
+  --theme-ink-rgb: 5 9 20;
   --color-ink: var(--theme-text);
   --color-paper: var(--theme-paper-text);
   --color-mist: var(--theme-mist-bg);
@@ -361,6 +361,21 @@
   --theme-paper-text: #edf6ff;
   --theme-muted: #afc6de;
   --theme-ink-rgb: 3 8 22;
+  color-scheme: dark;
+}
+
+:root[data-theme="command"] {
+  --theme-body-bg: radial-gradient(circle at 12% 8%, rgb(20 93 126 / 0.32), transparent 34%), radial-gradient(circle at 88% 82%, rgb(102 54 191 / 0.24), transparent 36%), #050914;
+  --theme-paper-bg: rgb(12 24 48 / 0.92);
+  --theme-mist-bg: #102344;
+  --theme-ink-bg: #050914;
+  --theme-surface: rgb(12 24 48 / 0.84);
+  --theme-border: rgb(42 199 242 / 0.28);
+  --theme-field: rgb(4 12 28 / 0.84);
+  --theme-text: #e9f7ff;
+  --theme-paper-text: #e9f7ff;
+  --theme-muted: #9bb5cf;
+  --theme-ink-rgb: 5 9 20;
   color-scheme: dark;
 }
 
@@ -452,6 +467,31 @@ body {
 
 :root[data-theme="glass"] .surface {
   box-shadow: 0 18px 55px rgb(0 0 0 / 0.18), inset 0 1px rgb(255 255 255 / 0.12);
+}
+
+:root[data-theme="command"] .surface {
+  box-shadow: inset 0 1px rgb(255 255 255 / 0.06), 0 18px 45px rgb(0 0 0 / 0.22);
+  backdrop-filter: blur(16px) saturate(130%);
+}
+
+:root[data-theme="command"] .card-accent:hover {
+  box-shadow: 0 0 0 1px rgb(42 199 242 / 0.2), 0 0 32px rgb(42 199 242 / 0.18), 0 22px 48px rgb(0 0 0 / 0.3);
+}
+
+:root[data-theme="command"] .on-ink-deep::after {
+  content: "";
+  position: absolute;
+  inset: -40% 0 auto;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgb(42 199 242 / 0.7), rgb(155 92 255 / 0.5), transparent);
+  animation: command-scan 8s linear infinite;
+}
+
+@keyframes command-scan {
+  from { transform: translateY(0); opacity: 0; }
+  12%, 72% { opacity: 1; }
+  to { transform: translateY(170vh); opacity: 0; }
 }
 
 /* ------------------------------------------------------------------
