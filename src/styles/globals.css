@@ -16,11 +16,12 @@
   --color-mint: #06d6a0;
   --color-violet: #845ec2;
 
-  --color-ink: #111827;
+  /* Light text remains available for the dark surfaces used across the site. */
+  --color-ink: #f8fafc;
   --color-ink-deep: #0a0f1c;
-  --color-ink-soft: #1c2536;
+  --color-ink-soft: #111a2b;
   --color-paper: #f8fafc;
-  --color-mist: #e9edf3;
+  --color-mist: #1a2638;
 
   --font-display: "Space Grotesk", "Trebuchet MS", "Segoe UI", sans-serif;
   --font-sans: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -125,7 +126,7 @@
 
   body {
     margin: 0;
-    background: var(--color-paper);
+    background: var(--color-ink-deep);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -209,7 +210,7 @@
     width: 100%;
     border: 1px solid var(--color-mist);
     border-radius: 0.75rem;
-    background: var(--color-paper);
+    background: var(--color-ink-soft);
     padding: 0.75rem 0.85rem;
     font-size: 0.95rem;
     font-weight: 500;
@@ -293,13 +294,13 @@
   }
 
   .btn--ink {
-    --btn-bg: var(--color-ink);
+    --btn-bg: var(--color-ink-deep);
     --btn-fg: var(--color-paper);
   }
 
   .btn--lime {
     --btn-bg: var(--color-lime);
-    --btn-fg: var(--color-ink);
+    --btn-fg: #0a0f1c;
   }
 
   .eyebrow {
@@ -424,6 +425,76 @@
     color: #6b4b00;
     border: 1px solid color-mix(in oklab, var(--color-yellow) 70%, transparent);
   }
+}
+
+/* ------------------------------------------------------------------
+   Dark theme
+   The component markup already uses semantic paper / mist surfaces. Keep
+   those names so the theme applies consistently across every route.
+------------------------------------------------------------------ */
+body {
+  color-scheme: dark;
+}
+
+.bg-paper {
+  background-color: #0f192a !important;
+}
+
+.bg-mist {
+  background-color: #172338 !important;
+}
+
+.bg-ink {
+  background-color: #0a0f1c !important;
+}
+
+[class~="bg-ink/10"] { background-color: rgb(10 15 28 / 0.1) !important; }
+[class~="bg-ink/50"] { background-color: rgb(10 15 28 / 0.5) !important; }
+[class~="bg-ink/55"] { background-color: rgb(10 15 28 / 0.55) !important; }
+[class~="bg-ink/60"] { background-color: rgb(10 15 28 / 0.6) !important; }
+[class~="bg-ink/70"] { background-color: rgb(10 15 28 / 0.7) !important; }
+[class~="bg-ink/80"] { background-color: rgb(10 15 28 / 0.8) !important; }
+[class~="bg-ink/85"] { background-color: rgb(10 15 28 / 0.85) !important; }
+[class~="bg-ink/92"] { background-color: rgb(10 15 28 / 0.92) !important; }
+[class~="bg-ink/95"] { background-color: rgb(10 15 28 / 0.95) !important; }
+
+.surface {
+  background: #121e31;
+  border-color: #263750;
+  color: #f8fafc;
+}
+
+.border-mist {
+  border-color: #263750 !important;
+}
+
+.divide-mist > :not([hidden]) ~ :not([hidden]) {
+  border-color: #263750 !important;
+}
+
+.text-ink {
+  color: #f8fafc !important;
+}
+
+.text-paper {
+  color: #f8fafc !important;
+}
+
+.on-ink {
+  background: #0d1626;
+  color: #f8fafc;
+}
+
+.on-ink-deep {
+  background: #070b14;
+  color: #f8fafc;
+}
+
+.field input,
+.field textarea {
+  border-color: #2a3b56;
+  background: #0d1626;
+  color: #f8fafc;
 }
 
 /* ------------------------------------------------------------------
