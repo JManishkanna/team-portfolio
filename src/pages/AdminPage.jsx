@@ -49,6 +49,16 @@ export default function AdminPage() {
                     }
                     if (!Array.isArray(skill.memberIds)) throw new Error(`Skill ${index + 1}: memberIds must be an array.`);
                 });
+            } else if (key === "teamMembers") {
+                value.forEach((member, index) => {
+                    if (!member || typeof member !== "object") throw new Error(`Portfolio ${index + 1} must be an object.`);
+                    for (const field of ["id", "slug", "name", "role", "shortBio"]) {
+                        if (typeof member[field] !== "string" || !member[field].trim()) throw new Error(`Portfolio ${index + 1}: ${field} is required.`);
+                    }
+                    if (!Array.isArray(member.skills)) throw new Error(`Portfolio ${index + 1}: skills must be an array.`);
+                    if (!member.skillGroups || typeof member.skillGroups !== "object") throw new Error(`Portfolio ${index + 1}: skill groups are required.`);
+                });
+            }
         }
         return value;
     };
@@ -93,6 +103,7 @@ export default function AdminPage() {
     const activeSection = sections.find(([key]) => key === active);
     const brandDraft = (() => { try { return JSON.parse(drafts.brand); } catch { return {}; } })();
     const technologyDraft = (() => { try { return JSON.parse(drafts.technologies); } catch { return []; } })();
+    const memberDraft = (() => { try { return JSON.parse(drafts.teamMembers); } catch { return []; } })();
     const renderBrandField = (name, label, multiline = false) => {
         const Input = multiline ? "textarea" : "input";
         return <label key={name} className="field"><span>{label}</span><Input rows={multiline ? 4 : undefined} value={brandDraft[name] ?? ""} onChange={(event) => { try { updateDraft("brand", JSON.stringify({ ...JSON.parse(drafts.brand), [name]: event.target.value }, null, 2)); } catch { updateDraft("brand", JSON.stringify({ ...brandDraft, [name]: event.target.value }, null, 2)); } }} /></label>;
@@ -114,6 +125,37 @@ export default function AdminPage() {
         if (!window.confirm(`Delete “${skill?.name ?? "this skill"}”?`)) return;
         updateDraft("technologies", JSON.stringify(technologyDraft.filter((_, skillIndex) => skillIndex !== index), null, 2));
     };
+    const updateMember = (index, field, value) => {
+        const next = memberDraft.map((member, memberIndex) => {
+            if (memberIndex !== index) return member;
+            if (field.startsWith("skillGroups.")) {
+                const group = field.split(".")[1];
+                return { ...member, skillGroups: { ...member.skillGroups, [group]: value.split(",").map((skill) => skill.trim()).filter(Boolean) } };
+            }
+            if (["skills", "interests", "strengths"].includes(field)) return { ...member, [field]: value.split(",").map((item) => item.trim()).filter(Boolean) };
+            return { ...member, [field]: value };
+        });
+        updateDraft("teamMembers", JSON.stringify(next, null, 2));
+    };
+    const renderMemberEditor = () => <div className="mt-5 flex flex-col gap-5">
+        <div className="rounded-xl border border-electric/20 bg-electric/5 p-4 text-sm text-ink/65">Customize each solo portfolio here. Profile changes and skill assignments are published with the Publish button.</div>
+        {memberDraft.map((member, index) => <article key={member.id ?? index} className="surface flex flex-col gap-5 p-5">
+            <div className="flex flex-wrap items-start justify-between gap-3 border-b border-mist pb-4">
+                <div><p className="font-mono text-xs uppercase tracking-[.16em] text-electric">Solo portfolio {index + 1}</p><h3 className="mt-1 font-display text-xl font-bold">{member.name || "Unnamed developer"}</h3></div>
+                <label className="field"><span>Accent color</span><input type="color" value={member.accent ?? "#25c7d9"} onChange={(event) => updateMember(index, "accent", event.target.value)} className="h-11 w-16 cursor-pointer rounded-xl border border-mist bg-transparent p-1" /></label>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+                <label className="field"><span>Name</span><input value={member.name ?? ""} onChange={(event) => updateMember(index, "name", event.target.value)} /></label>
+                <label className="field"><span>Role</span><input value={member.role ?? ""} onChange={(event) => updateMember(index, "role", event.target.value)} /></label>
+                <label className="field"><span>Location</span><input value={member.location ?? ""} onChange={(event) => updateMember(index, "location", event.target.value)} /></label>
+                <label className="field"><span>Specialty</span><input value={member.specialty ?? ""} onChange={(event) => updateMember(index, "specialty", event.target.value)} /></label>
+                <label className="field sm:col-span-2"><span>Short bio</span><textarea rows={2} value={member.shortBio ?? ""} onChange={(event) => updateMember(index, "shortBio", event.target.value)} /></label>
+                <label className="field sm:col-span-2"><span>Full biography</span><textarea rows={4} value={member.biography ?? ""} onChange={(event) => updateMember(index, "biography", event.target.value)} /></label>
+                <label className="field sm:col-span-2"><span>Visible skills <small className="field-hint">comma-separated; shown in portfolio chips</small></span><input value={(member.skills ?? []).join(", ")} onChange={(event) => updateMember(index, "skills", event.target.value)} placeholder="React, JavaScript, CSS" /></label>
+                {Object.keys(member.skillGroups ?? { frontend: [], backend: [], database: [], tools: [] }).map((group) => <label className="field" key={group}><span>{group} skills <small className="field-hint">comma-separated</small></span><textarea rows={2} value={(member.skillGroups?.[group] ?? []).join(", ")} onChange={(event) => updateMember(index, `skillGroups.${group}`, event.target.value)} /></label>)}
+            </div>
+        </article>)}
+    </div>;
     const renderTechnologyEditor = () => <div className="mt-5 flex flex-col gap-4">
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-electric/20 bg-electric/5 p-4">
             <p className="text-sm text-ink/65">Add a skill, edit its details, or remove one. Changes are published with the Publish button.</p>
@@ -145,7 +187,7 @@ export default function AdminPage() {
                     {active === "overview" ? <div><p className="font-mono text-xs uppercase tracking-[.16em] text-electric">Workspace summary</p><h2 className="mt-2 font-display text-2xl font-bold">Your content, at a glance</h2><p className="mt-2 max-w-2xl text-sm text-ink/60">Choose a section to edit. Preview opens a separate public tab using your current drafts; publishing is a separate action.</p><div className="mt-6 grid gap-3 sm:grid-cols-2">{sections.map(([key, label]) => <button key={key} type="button" onClick={() => setActive(key)} className="flex items-center justify-between rounded-xl border border-mist p-4 text-left hover:border-electric"><span className="font-semibold">{label}</span><span className={`font-mono text-[.62rem] uppercase ${dirtyKeys.includes(key) ? "text-yellow" : "text-lime"}`}>{dirtyKeys.includes(key) ? "Unsaved draft" : "Published"}</span></button>)}</div></div> : <>
                         <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="font-mono text-xs uppercase tracking-[.16em] text-electric">{dirtyKeys.includes(active) ? "Draft changes" : "Published content"}</p><h2 className="mt-1 font-display text-2xl font-bold">{activeSection?.[1]}</h2></div><div className="flex flex-wrap gap-2"><button type="button" className="btn btn--ghost" onClick={preview}>Preview</button><button type="button" className="btn" onClick={() => save()}><Save className="h-4 w-4" /> Publish</button></div></div>
                         <div className="mt-5 flex items-center justify-between gap-3"><p className="text-sm text-ink/55">{active === "brand" && !advanced ? "Edit brand fields with validation." : "Advanced mode: edit structured JSON directly."}</p><button type="button" className="font-mono text-xs font-bold uppercase tracking-wide text-electric hover:underline" onClick={() => setAdvanced((value) => !value)}>{advanced ? "Use labeled fields" : "Advanced JSON"}</button></div>
-                        {active === "brand" && !advanced ? <div className="mt-5 grid gap-4 sm:grid-cols-2">{renderBrandField("name", "Site name")}{renderBrandField("tagline", "Tagline")}{renderBrandField("altTagline", "Secondary tagline")}{renderBrandField("email", "Contact email")}{renderBrandField("location", "Location")}{renderBrandField("description", "Description", true)}</div> : active === "technologies" && !advanced ? renderTechnologyEditor() : <textarea className="mt-4 min-h-[26rem] w-full rounded-xl border border-mist bg-ink-deep p-4 font-mono text-sm leading-relaxed text-lime outline-none focus:ring-4 focus:ring-electric/20" value={drafts[active]} onChange={(event) => updateDraft(active, event.target.value)} spellCheck={false} aria-label={`${activeSection?.[1]} JSON`} />}
+                        {active === "brand" && !advanced ? <div className="mt-5 grid gap-4 sm:grid-cols-2">{renderBrandField("name", "Site name")}{renderBrandField("tagline", "Tagline")}{renderBrandField("altTagline", "Secondary tagline")}{renderBrandField("email", "Contact email")}{renderBrandField("location", "Location")}{renderBrandField("description", "Description", true)}</div> : active === "technologies" && !advanced ? renderTechnologyEditor() : active === "teamMembers" && !advanced ? renderMemberEditor() : <textarea className="mt-4 min-h-[26rem] w-full rounded-xl border border-mist bg-ink-deep p-4 font-mono text-sm leading-relaxed text-lime outline-none focus:ring-4 focus:ring-electric/20" value={drafts[active]} onChange={(event) => updateDraft(active, event.target.value)} spellCheck={false} aria-label={`${activeSection?.[1]} JSON`} />}
                     </>}
                     {message && <p className={`mt-5 rounded-xl border p-3 text-sm font-semibold ${message.toLowerCase().includes("invalid") || message.includes("required") || message.includes("must be") || message.includes("blocked") ? "border-coral/25 bg-coral/10 text-coral" : "border-electric/20 bg-electric/5 text-ink"}`} role="status">{message}</p>}
                 </section>
