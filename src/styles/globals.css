@@ -601,3 +601,13 @@ body {
 *::after {
   text-decoration: none !important;
 }
+
+a:not(.btn) {
+  color: var(--color-electric);
+  transition: color 180ms ease;
+}
+
+a:not(.btn):hover,
+a:not(.btn):focus-visible {
+  color: var(--color-violet);
+}
