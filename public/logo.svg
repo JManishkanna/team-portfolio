@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Team Vinsmokes logo</title>
+  <desc id="desc">A paired bracket mark with a gold center dot.</desc>
+  <rect width="256" height="256" rx="56" fill="#100001"/>
+  <path d="M104 52c-20 0-28 12-28 28v20c0 16-12 28-28 28 16 0 28 12 28 28v20c0 16 8 28 28 28" fill="none" stroke="#FFEF93" stroke-width="20" stroke-linecap="round"/>
+  <path d="M152 52c20 0 28 12 28 28v20c0 16 12 28 28 28-16 0-28 12-28 28v20c0 16-8 28-28 28" fill="none" stroke="#DC0208" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="128" cy="128" r="18" fill="#FFEF93"/>
+</svg>
