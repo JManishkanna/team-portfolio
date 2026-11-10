@@ -212,6 +212,28 @@
     --btn-fg: #100001;
   }
 
+  .empty-state :is(h1, h2, h3, h4) {
+    color: var(--theme-text);
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  .empty-state a:not(.btn) {
+    color: var(--color-electric);
+    transition: color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .empty-state a:not(.btn):hover {
+    color: var(--color-violet);
+  }
+
+  .empty-state span,
+  .demo-flag__text {
+    font-family: var(--font-sans);
+  }
+
   .eyebrow {
     display: inline-flex;
     align-items: center;

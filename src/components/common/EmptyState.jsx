@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Link } from "react-router-dom";
 import { Info } from "lucide-react";
 export function EmptyState({ title, body, actionTo, actionLabel, }) {
-    return (_jsxs("div", { className: "surface flex flex-col items-start gap-3 p-6", children: [_jsx("h3", { className: "text-title", children: title }), _jsx("p", { className: "text-ink/65", children: body }), actionTo && actionLabel ? (_jsx(Link, { to: actionTo, className: "btn btn--lime", children: actionLabel })) : null] }));
+    return (_jsxs("div", { className: "empty-state surface flex flex-col items-start gap-3 p-6", children: [_jsx("h3", { className: "text-title", children: title }), _jsx("p", { className: "text-ink/65", children: body }), actionTo && actionLabel ? (_jsx(Link, { to: actionTo, className: "btn btn--lime", children: actionLabel })) : null] }));
 }
 /**
  * Marks content that is example data rather than a verified fact about a real
@@ -11,6 +11,6 @@ export function EmptyState({ title, body, actionTo, actionLabel, }) {
  */
 export function DemoNotice({ children }) {
     if (!children) return null;
-    return (_jsxs("p", { className: "demo-flag", role: "note", children: [_jsx(Info, { className: "h-4 w-4", "aria-hidden": "true" }), _jsx("span", { children: children ??
+    return (_jsxs("p", { className: "demo-flag", role: "note", children: [_jsx(Info, { className: "h-4 w-4", "aria-hidden": "true" }), _jsx("span", { className: "demo-flag__text", children: children ??
                     "Demonstration content. Replace it with your team's real work before publishing." })] }));
 }
