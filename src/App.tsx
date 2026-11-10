@@ -38,7 +38,8 @@ export default function App() {
           <Route path="achievements" element={<AchievementsPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="admin/projects" element={<AdminProjectsPage />} />
-          <Route path="admin" element={<AdminPage />} />
+          <Route path="admin" caseSensitive element={<AdminPage />} />
+          <Route path="ADMIN" caseSensitive element={<AdminPage />} />
           <Route path="404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
