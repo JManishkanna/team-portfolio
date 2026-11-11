@@ -18,7 +18,7 @@ export const teamMembers = [
         role: "Full-Stack Developer · Team Lead",
         shortBio: "I build responsive web applications and the scalable backend systems behind them, then make sure both ship on the same day.",
         biography: "Manish Kanna J coordinates the crew: he turns a rough idea into a build plan, splits it into work that can land in a week, and reviews the parts he is not writing himself. He moved from Java services to React frontends and never gave up either, which is why most of the team's architecture notes start with a database diagram.",
-        photo: "/images/avatars/manish.svg",
+        photo: "/images/avatars/my-profile.png",
         location: "Bengaluru, India",
         skills: [
             "React",
