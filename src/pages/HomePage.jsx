@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowDown, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { BackdropDecor } from "../components/animations/BackdropDecor";
+import Lightfall from "../components/animations/Lightfall";
 import { GithubMark } from "../components/common/BrandIcons";
 import { StaggerText } from "../components/animations/StaggerText";
 import { Reveal, StaggerGroup, staggerItem } from "../components/animations/Reveal";

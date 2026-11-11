@@ -1,0 +1,46 @@
+.lightfall-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+  opacity: var(--lightfall-opacity, 0.7);
+}
+
+.lightfall-glow {
+  position: absolute;
+  inset: -35% -15% auto;
+  height: 75%;
+  background: radial-gradient(ellipse at 50% 0%, color-mix(in oklab, var(--lightfall-bg) 70%, white) 0%, transparent 68%);
+  filter: blur(22px);
+  opacity: 0.35;
+}
+
+.lightfall-streaks {
+  position: absolute;
+  inset: -20% 0;
+  transform: perspective(520px) rotateX(9deg);
+}
+
+.lightfall-streak {
+  position: absolute;
+  top: calc(-18% - var(--lightfall-index) * 9%);
+  left: calc((var(--lightfall-index) * 37%) % 100);
+  width: var(--lightfall-width, 1px);
+  height: calc(12% + (var(--lightfall-index) % 4) * 7%);
+  border-radius: 999px;
+  background: linear-gradient(to bottom, transparent, var(--lightfall-color), white 78%, transparent);
+  box-shadow: 0 0 12px var(--lightfall-color), 0 0 30px color-mix(in oklab, var(--lightfall-color) 65%, transparent);
+  opacity: calc(0.35 + (var(--lightfall-index) % 5) * 0.1);
+  animation: lightfall-drop var(--lightfall-duration, 12s) linear infinite;
+  animation-delay: calc(var(--lightfall-index) * -0.42s);
+}
+
+@keyframes lightfall-drop {
+  from { transform: translate3d(0, -20%, 0) rotate(8deg); }
+  to { transform: translate3d(12vw, 150vh, 0) rotate(8deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightfall-streak { animation: none; opacity: 0.25; }
+}
