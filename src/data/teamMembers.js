@@ -71,7 +71,7 @@ export const teamMembers = [
         photo: "/images/avatars/siva.png",
         skills: ["Java", "Spring Boot", "Spring Security", "MySQL", "Redis", "JUnit", "Docker", "Maven", "Linux"],
         email: "siva@fullstackcrew.example",
-        featuredProjectSlugs: ["shard-api", "migrate-mono", "pulseboard"],
+        featuredProjectSlugs: ["ANI-concert"],
         achievements: [
             "Cut a report query from 11 seconds to under 200 milliseconds by restructuring the schema and adding a covering index.",
             "Designed the multi-tenant isolation model used by the team's API gateway.",
