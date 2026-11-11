@@ -62,15 +62,15 @@ export const teamMembers = [
     {
         id: "m2",
         slug: "sivakumar-a",
-        aliases: ["aarav"],
+        aliases: ["siva"],
         name: "Sivakumar A",
         role: "Full-Stack Developer · Backend Specialist",
         shortBio: "I design the Java services and MySQL schemas the rest of the team builds against, and I care what happens on row one million.",
         biography: "Sivakumar A owns the server side of the crew's work: Spring Boot services, security configuration, migrations and the query plans nobody else wants to read. He is the one who adds the index before the demo, and the one who can explain why the endpoint is slow.",
         location: "Chennai, India",
-        photo: "/images/avatars/aarav.svg",
+        photo: "/images/avatars/siva.png",
         skills: ["Java", "Spring Boot", "Spring Security", "MySQL", "Redis", "JUnit", "Docker", "Maven", "Linux"],
-        email: "aarav@fullstackcrew.example",
+        email: "siva@fullstackcrew.example",
         featuredProjectSlugs: ["shard-api", "migrate-mono", "pulseboard"],
         achievements: [
             "Cut a report query from 11 seconds to under 200 milliseconds by restructuring the schema and adding a covering index.",
