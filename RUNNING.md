@@ -70,7 +70,7 @@ npm run dev
 | `http://localhost:5173/` | dev server, hot reload |
 | `http://<your-lan-ip>:5173/` | same app on your phone (host is open by default) |
 
-The dev server is configured in [`vite.config.ts`](./vite.config.ts).
+The dev server is configured in [`vite.config.js`](./vite.config.js).
 
 ### Verify the individual portfolios work
 
@@ -125,8 +125,8 @@ VITE_SITE_URL=https://your-domain.com npm run sitemap
 
 Writes `public/sitemap.xml` and `public/robots.txt` with all 21 URLs — the 6
 top-level pages, 3 developer profiles × 3 routes each, and 6 project case
-studies. Slugs are scraped from `src/data/teamMembers.ts` and
-`src/data/projects.ts`, so the sitemap cannot drift from the actual routes.
+studies. Slugs are scraped from `src/data/teamMembers.js` and
+`src/data/projects.js`, so the sitemap cannot drift from the actual routes.
 
 Run it **before** `npm run build` so the files land in `dist/`. Without
 `VITE_SITE_URL` the script exits with an error rather than inventing a domain.

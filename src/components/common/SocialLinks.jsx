@@ -22,7 +22,7 @@ export function SocialLinks({ member, accent = "#4361EE", showEmptyHint = false 
             : null,
     ].filter(Boolean);
     if (links.length === 0) {
-        return showEmptyHint ? (_jsxs("p", { className: "text-sm text-ink/55", children: ["No external profiles configured for ", member.name, " yet \u2014 add `githubUrl`, `linkedinUrl` or `portfolioUrl` in ", _jsx("code", { className: "font-mono text-xs", children: "src/data/teamMembers.ts" }), "."] })) : null;
+        return showEmptyHint ? (_jsxs("p", { className: "text-sm text-ink/55", children: ["No external profiles configured for ", member.name, " yet \u2014 add `githubUrl`, `linkedinUrl` or `portfolioUrl` in ", _jsx("code", { className: "font-mono text-xs", children: "src/data/teamMembers.js" }), "."] })) : null;
     }
     return (_jsx("ul", { className: "flex items-center gap-2.5", children: links.map(({ key, href, label, Icon }) => (_jsx("li", { children: _jsx("a", { href: href, "aria-label": label, title: label, className: base, style: { borderColor: `${accent}55`, color: accent }, ...(href.startsWith("http") ? { target: "_blank", rel: "noreferrer noopener" } : {}), children: _jsx(Icon, { className: "h-4.5 w-4.5" }) }) }, key))) }));
 }

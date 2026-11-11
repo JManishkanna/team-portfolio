@@ -26,7 +26,7 @@ const stripTypes = (src) =>
 
 async function load(name) {
   const file = join(tmp, `${name}.mjs`);
-  writeFileSync(file, stripTypes(readFileSync(join(root, "src/data", `${name}.ts`), "utf8")));
+  writeFileSync(file, stripTypes(readFileSync(join(root, "src/data", `${name}.js`), "utf8")));
   return import(pathToFileURL(file).href);
 }
 

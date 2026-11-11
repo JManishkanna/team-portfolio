@@ -9,7 +9,7 @@ dist-ssr
 !.env.example
 
 # Build artifacts
-*.tsbuildinfo
+*.jsbuildinfo
 .vite
 
 # Generated from VITE_SITE_URL by `npm run sitemap`

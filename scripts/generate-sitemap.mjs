@@ -1,7 +1,7 @@
 /**
  * Generates public/sitemap.xml and public/robots.txt from the shipped data files.
  *
- * Slugs are read straight out of src/data/*.ts so the sitemap can never drift
+ * Slugs are read straight out of src/data/*.js so the sitemap can never drift
  * from the routes the app actually registers.
  *
  * Usage:  VITE_SITE_URL=https://example.com npm run sitemap
@@ -26,8 +26,8 @@ if (!siteUrl || !/^https?:\/\/./.test(siteUrl)) {
 const slugsFrom = (file, pattern) =>
   [...readFileSync(join(root, "src/data", file), "utf8").matchAll(pattern)].map((m) => m[1]);
 
-const memberSlugs = slugsFrom("teamMembers.ts", /^\s*slug:\s*"([^"]+)"/gm);
-const projectSlugs = slugsFrom("projects.ts", /^\s*slug:\s*"([^"]+)"/gm);
+const memberSlugs = slugsFrom("teamMembers.js", /^\s*slug:\s*"([^"]+)"/gm);
+const projectSlugs = slugsFrom("projects.js", /^\s*slug:\s*"([^"]+)"/gm);
 
 const today = new Date().toISOString().slice(0, 10);
 

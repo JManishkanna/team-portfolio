@@ -2,7 +2,7 @@ import { hydrateArray } from "../utils/contentStorage";
 /**
  * The crew's shared stack. `memberIds` drives the "who works with this" list on
  * /skills and the links from each technology to an individual portfolio.
- * Keep this in step with skillGroups in teamMembers.ts.
+ * Keep this in step with skillGroups in teamMembers.js.
  */
 export const technologyCategories = [
     "Frontend",
