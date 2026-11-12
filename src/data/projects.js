@@ -10,7 +10,7 @@ const seedProjects = [
         title: "ani-concert",
         description: "Ani-Concert is a web application that allows users to explore and discover anirudh concerts, view concert details, upcoming shows and purchase tickets online.",
         thumbnail: "/images/projects/ani-concert.png",
-        technologies: [ "HTML", "CSS", "JavaScript", "Spring Boot",  ],
+        technologies: [ "HTML", "CSS", "JavaScript"  ],
         contributorIds: ["m1", "m2", "m3"],
         categories: ["Web Applications", "Full-Stack Applications"],
         featured: true,
