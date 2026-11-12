@@ -188,6 +188,7 @@ export function DeveloperHero({ member }) {
               to={`/team/${member.slug}/projects`}
               variant="lime"
             >
+                📜<br />
               View my projects
               {/* <ArrowRight
                 className="h-4 w-4"
@@ -207,21 +208,21 @@ export function DeveloperHero({ member }) {
             </ActionButton>
             <ActionButton
                 to={
-    member.slug === "manishkanna-j"
-      ? "https://mephisto-engine.vercel.app/"
-      : member.slug === "sivakumar-a"
-      ? "https://www.linkedin.com/in/manish-kanna-j-604b88298/"
-      : "https://www.youtube.com/"
-  }
-  variant="ghost"
-  style={{
-    backgroundColor: "#4361EE",
-    color: "#FFFFFF",
-    borderColor: "#4361EE",
-    borderRadius: "20px",
-  }}
->
-              Contact 
+                    member.slug === "manishkanna-j"
+                    ? "https://mephisto-engine.vercel.app/"
+                    : member.slug === "sivakumar-a"
+                    ? "https://www.linkedin.com/in/manish-kanna-j-604b88298/"
+                    : "https://www.youtube.com/"
+                }
+                variant="ghost"
+                style={{
+                    backgroundColor: "#4361EE",
+                    color: "#FFFFFF",
+                    borderColor: "#4361EE",
+                    borderRadius: "20px",
+                    }}
+                    >
+              portfolio
             </ActionButton>
          
           </motion.div>
