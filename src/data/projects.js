@@ -15,7 +15,9 @@ const seedProjects = [
         categories: ["Web Applications", "Full-Stack Applications"],
         featured: true,
         year: "2026",
-        Links:"https://ani-concert.vercel.app/",
+        // Links:"https://ani-concert.vercel.app/",
+        liveDemoUrl : "https://ani-concert.vercel.app/",
+        githubUrl : "https://github.com/JManishkanna/ANI-concert",
         detail: {
             overview: "Ani-Concert is a web application that allows users to explore and discover anirudh concerts, view concert details, upcoming shows and purchase tickets online.",
             problem: "The teams we built this for were watching four tabs and a chat channel at the same time. When something broke, the incident narrative was reconstructed from scrollback, and the same failure reappeared a month later because nobody had written down the fix.",
