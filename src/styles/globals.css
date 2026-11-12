@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
-@theme {
+theme {
   --color-ink-deep: #08151b;
   --color-ink: #10232b;
   --color-paper: #f2f8f6;
   --color-mist: #203a43;
   --color-electric: #25c7d9;
-  --color-lime: #d8ed3f;
+  --color-lime: #b9da5d;
   --color-violet: #8878ff;
   --color-coral: #ff718a;
   --color-mint: #54e2b5;
-  --color-yellow: #f3d75b;
+  --color-yellow: #f6f65e;
   --color-orange: #ff975e;
 }
 
@@ -551,7 +551,7 @@ body {
 }
 
 .rounded-pill svg path:first-of-type { stroke: #f8fafc; }
-.rounded-pill svg path:nth-of-type(2) { stroke: #d8ed3f; }
+.rounded-pill svg path:nth-of-type(2) { stroke: #73ed3f; }
 .rounded-pill svg circle { fill: #25c7d9; }
 
 /* Team portrait labels inherit each specialist's cyan/violet/lime accent. */
