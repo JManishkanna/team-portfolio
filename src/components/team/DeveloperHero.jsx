@@ -205,7 +205,22 @@ export function DeveloperHero({ member }) {
               />
               Contact me
             </ActionButton>
+            <ActionButton
+                to={
+                    member.slug === "jmanishkanna"
+                      ? "https://mephisto-engine.vercel.app/"
+                      : member.slug === "sivakumar-a"
+                      ? "https://www.linkedin.com/in/manish-kanna-j-604b88298/"
+                      : "https://www.youtube.com/"
+                }
+              variant="ghost"
+            >
+              Contact 
+            </ActionButton>
+         
           </motion.div>
+
+
 
           {/* Social Links and Skills */}
           <motion.div
@@ -224,26 +239,7 @@ export function DeveloperHero({ member }) {
               accent={member.accent}
               limit={5}
             />
-          {/* </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.55 }}
-            className="flex flex-wrap items-center gap-3"
-          > */}
-
-            <ActionButton
-              to={`/team/${member.slug}/contact`}
-              variant="ghost"
-            >
-              <Mail
-                className="h-4 w-4"
-                aria-hidden="true"
-              />
-              Contact me
-            </ActionButton>
-          </motion.div>
-
+            </motion.div>
         </div>
       </div>
     </section>
