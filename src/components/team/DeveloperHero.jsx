@@ -214,7 +214,7 @@ export function DeveloperHero({ member }) {
                     ? "https://www.linkedin.com/in/manish-kanna-j-604b88298/"
                     : "https://www.youtube.com/"
                 }
-                variant="ghost"
+                // variant="ghost"
                 style={{
                     backgroundColor: "#4361EE",
                     color: "#FFFFFF",
