@@ -57,7 +57,7 @@ const seedProjects = [
                 "Append-only audit log queryable by tenant, actor and time range",
             ],
             contributions: [
-                { memberId: "m2", note: "Built tenant resolution, pool isolation, rate limiting and the audit pipeline." },
+
                 { memberId: "m1", note: "Wrote the Spring Security model, integration tests and the rollout plan." },
             ],
         },
