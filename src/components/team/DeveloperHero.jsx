@@ -196,31 +196,26 @@ export function DeveloperHero({ member }) {
             </ActionButton>
 
             <ActionButton
-              to={`/team/${member.slug}/contact`}
-              variant="ghost"
-            >
-              <Mail
-                className="h-4 w-4"
-                aria-hidden="true"
-              />
-              Contact me
-            </ActionButton>
-            <ActionButton
-                to={
-                    member.slug === "jmanishkanna"
-                      ? "https://mephisto-engine.vercel.app/"
-                      : member.slug === "sivakumar-a"
-                      ? "https://www.linkedin.com/in/manish-kanna-j-604b88298/"
-                      : "https://www.youtube.com/"
-                }
-              variant="ghost"
-            >
-              Contact 
-            </ActionButton>
-         
-          </motion.div>
+  to={
+    member.slug === "manishkanna-j"
+      ? "https://mephisto-engine.vercel.app/"
+      : member.slug === "sivakumar-a"
+      ? "https://www.linkedin.com/in/manish-kanna-j-604b88298/"
+      : "https://www.youtube.com/"
+  }
+  variant="ghost"
+  style={{
+    backgroundColor: "#4361EE",
+    color: "#FFFFFF",
+    borderColor: "#4361EE",
+    borderRadius: "20px",
+  }}
+>
+  <Mail className="h-4 w-4" aria-hidden="true" />
+  Contact me
+</ActionButton>
 
-
+            </motion.div>
 
           {/* Social Links and Skills */}
           <motion.div
