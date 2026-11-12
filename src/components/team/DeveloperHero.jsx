@@ -218,7 +218,7 @@ export function DeveloperHero({ member }) {
                 style={{
                     backgroundColor: "#4361EE",
                     color: "#FFFFFF",
-                    borderColor: "#4361EE",
+                    border: "none",
                     borderRadius: "20px",
                     }}
                     >
