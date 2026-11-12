@@ -196,7 +196,17 @@ export function DeveloperHero({ member }) {
             </ActionButton>
 
             <ActionButton
-  to={
+              to={`/team/${member.slug}/contact`}
+              variant="ghost"
+            >
+              <Mail
+                className="h-4 w-4"
+                aria-hidden="true"
+              />
+              Contact me
+            </ActionButton>
+            <ActionButton
+                to={
     member.slug === "manishkanna-j"
       ? "https://mephisto-engine.vercel.app/"
       : member.slug === "sivakumar-a"
@@ -211,11 +221,12 @@ export function DeveloperHero({ member }) {
     borderRadius: "20px",
   }}
 >
-  <Mail className="h-4 w-4" aria-hidden="true" />
-  Contact me
-</ActionButton>
+              Contact 
+            </ActionButton>
+         
+          </motion.div>
 
-            </motion.div>
+
 
           {/* Social Links and Skills */}
           <motion.div
