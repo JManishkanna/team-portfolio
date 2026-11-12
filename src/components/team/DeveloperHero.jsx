@@ -219,7 +219,7 @@ export function DeveloperHero({ member }) {
                     backgroundColor: "#4361EE",
                     color: "#FFFFFF",
                     border: "none",
-                    borderRadius: "20px",
+                    // borderRadius: "20px",
                     }}
                     >
               portfolio
