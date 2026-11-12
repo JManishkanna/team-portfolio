@@ -224,6 +224,24 @@ export function DeveloperHero({ member }) {
               accent={member.accent}
               limit={5}
             />
+          {/* </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.55 }}
+            className="flex flex-wrap items-center gap-3"
+          > */}
+
+            <ActionButton
+              to={`/team/${member.slug}/contact`}
+              variant="ghost"
+            >
+              <Mail
+                className="h-4 w-4"
+                aria-hidden="true"
+              />
+              Contact me
+            </ActionButton>
           </motion.div>
 
         </div>
