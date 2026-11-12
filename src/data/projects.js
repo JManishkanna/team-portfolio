@@ -6,7 +6,7 @@
  */
 const seedProjects = [
     {
-        slug: "ANI-concert",
+        slug: "ani-concert",
         title: "ani-concert",
         description: "Ani-Concert is a web application that allows users to explore and discover anirudh concerts, view concert details, upcoming shows and purchase tickets online.",
         thumbnail: "/images/projects/ani-concert.png",
@@ -35,10 +35,10 @@ const seedProjects = [
         },
     },
     {
-        slug: "theater admin",
+        slug: "theater-admin",
         title: "Theater Admin",
         description: "A web application for managing theater operations, including show schedules, ticket sales, parking bookings , screen viewing , and venue management.",
-        thumbnail: "/images/projects/theater-admin.svg",
+        thumbnail: "/images/projects/cineflow.png",
         technologies: ["React", "Node.js", "Express",],
         contributorIds: ["m1"],
         categories: ["Frontend Systems", "Developer Tools"],
@@ -58,7 +58,7 @@ const seedProjects = [
             ],
             contributions: [
 
-                { memberId: "m1", note: "Wrote the Spring Security model, integration tests and the rollout plan." },
+                { memberId: "m1", note:" designed the UI/UX for the admin panel and  built the frontend components" },
             ],
         },
     },

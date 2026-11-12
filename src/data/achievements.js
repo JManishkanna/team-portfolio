@@ -10,19 +10,20 @@ export const achievementsAreDemonstration = true;
 export const achievements = [
     {
         id: "a1",
-        title: "Crew formed",
+        title: "ani-concert",
         summary: "Three developers started reviewing each other's pull requests on a shared backlog, which is the whole origin story of this portfolio.",
         kind: "milestone",
         date: "2026",
+        memberId: ["m1", "m2", "m3"],
         accent: "#4361EE",
     },
     {
         id: "a2",
-        title: "ani-concert",
+        title: "theater-admin",
         summary: "The team's first a mini project built from scratch, with a live URL and a real user base.",
         kind: "open-source",
         date: "2026",
-        memberId: "m1,m2,m3",
+        memberId: "m1",
         accent: "#06D6A0",
     },
     // {
