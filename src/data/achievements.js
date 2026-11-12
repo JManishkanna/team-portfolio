@@ -14,7 +14,6 @@ export const achievements = [
         summary: "Three developers started reviewing each other's pull requests on a shared backlog, which is the whole origin story of this portfolio.",
         kind: "milestone",
         date: "2026",
-        memberId: "m1",memberId: "m2",memberId: "m3",
         accent: "#4361EE",
     },
     {
