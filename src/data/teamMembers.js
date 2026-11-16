@@ -76,20 +76,10 @@ export const teamMembers = [
         achievements: [
             "Developed and maintained backend services for E-commerce and Resume Builder applications using Laravel and MySQL.",
         ],
-<<<<<<< HEAD
-        accent: "#38bdf8",
-        specialty: "Laravel Backend Development, REST APIs and Full Stack Web Development",
-        expandedBio: "My professional journey includes developing Laravel-based web applications, building REST APIs, integrating frontend applications, managing MySQL databases, and fixing application issues. I have contributed to E-commerce and Resume Builder projects and gained additional exposure to Node.js and React.js. I am also developing my skills in Java and Spring Boot through full-stack project development.",
-        interests: ["Full Stack Development",
-        "Backend Development",
-        "Learning New Technologies",
-        "Building Web Applications"],
-=======
         accent: "#00b899",
         specialty: "Spring Boot services, MySQL schemas and query plans",
         expandedBio: "Backend work is mostly restraint. The tempting abstraction is usually the wrong one; the boring join table is usually the right one. I spend my time on the parts users never see: connection pools, transaction boundaries, migrations that can be rolled back, and logs that are specific enough to debug from.",
         interests: ["Query optimisation", "Distributed systems", "Security modelling", "Observability"],
->>>>>>> 8995b4629c3295d899669910efd468bdb177c1da
         strengths: [
             "Laravel backend development and REST API creation",
             "MySQL database operations and application development",
