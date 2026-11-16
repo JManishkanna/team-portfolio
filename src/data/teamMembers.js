@@ -118,7 +118,7 @@ export const teamMembers = [
         shortBio: "I build the interfaces: motion, layout and interaction detail that make our products feel deliberate instead of assembled.",
         biography: "Moneshkumar M owns the browser side of the crew. He builds the design tokens, the component library and the animation layer, then argues for the keyboard shortcut nobody asked for. His reviews are mostly about spacing, focus states and whether something responds in under 200 milliseconds.",
         location: "Chennai, India",
-        photo: "/images/avatars/monesh.jpeg",
+        photo: "/images/avatars/monesh.png",
         skills: ["React", "JavaScript", "Bootstrap","Figma", "Vite"],
         email: "monesh@fullstackcrew.example",
         featuredProjectSlugs: ["code-canvas", "verdant-cart", "pulseboard"],
