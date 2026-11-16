@@ -14,7 +14,8 @@ export const teamMembers = [
     {
         id: "m1",
         slug: "manishkanna-j",
-        name: "Manish Kanna J",
+        name: "ManishKannaJ",
+        nickname: "Mephisto",
         role: "Full-Stack Developer · Team Lead",
         shortBio: "I build responsive web applications and the scalable backend systems behind them, then make sure both ship on the same day.",
         biography: "Manish Kanna J coordinates the crew: he turns a rough idea into a build plan, splits it into work that can land in a week, and reviews the parts he is not writing himself. He moved from Java services to React frontends and never gave up either, which is why most of the team's architecture notes start with a database diagram.",
@@ -41,7 +42,7 @@ export const teamMembers = [
             "Built the team's shared CI workflow that runs type checks, tests and a Lighthouse pass on every pull request.",
             "Introduced the accessibility checklist the team now clears before any UI review.",
         ],
-        accent: "#4361EE",
+        accent: "#2f51e7",
         specialty: "React + Spring Boot systems that stay readable at 2am",
         expandedBio: "I start most problems at the data layer. Once the entities and their transitions are honest, the API falls out of them and the interface stops being a negotiation. As team lead I care about two things: that a junior can open any repo here and find their way, and that what we demo on Friday was running in production on Thursday.",
         interests: ["API design", "Performance budgets", "Distributed transactions", "Mentoring"],
@@ -75,6 +76,7 @@ export const teamMembers = [
         achievements: [
             "Developed and maintained backend services for E-commerce and Resume Builder applications using Laravel and MySQL.",
         ],
+<<<<<<< HEAD
         accent: "#38bdf8",
         specialty: "Laravel Backend Development, REST APIs and Full Stack Web Development",
         expandedBio: "My professional journey includes developing Laravel-based web applications, building REST APIs, integrating frontend applications, managing MySQL databases, and fixing application issues. I have contributed to E-commerce and Resume Builder projects and gained additional exposure to Node.js and React.js. I am also developing my skills in Java and Spring Boot through full-stack project development.",
@@ -82,6 +84,12 @@ export const teamMembers = [
         "Backend Development",
         "Learning New Technologies",
         "Building Web Applications"],
+=======
+        accent: "#00b899",
+        specialty: "Spring Boot services, MySQL schemas and query plans",
+        expandedBio: "Backend work is mostly restraint. The tempting abstraction is usually the wrong one; the boring join table is usually the right one. I spend my time on the parts users never see: connection pools, transaction boundaries, migrations that can be rolled back, and logs that are specific enough to debug from.",
+        interests: ["Query optimisation", "Distributed systems", "Security modelling", "Observability"],
+>>>>>>> 8995b4629c3295d899669910efd468bdb177c1da
         strengths: [
             "Laravel backend development and REST API creation",
             "MySQL database operations and application development",
@@ -129,7 +137,7 @@ export const teamMembers = [
             "Took two dashboards to a clean Lighthouse accessibility pass, including full keyboard-only flows.",
             "Set up the team's reduced-motion policy for scroll animation.",
         ],
-        accent: "#00b899",
+        accent: "#FF5A7A",
         specialty: "Interaction design, animation systems and accessible React",
         expandedBio: "A frontend is finished when it behaves well on a three-year-old phone with one thumb, not when it matches the mockup. I treat motion as feedback: it should explain what just happened and then get out of the way. Everything I build has a keyboard path and a reduced-motion fallback before it has a hover effect.",
         interests: ["Motion design", "Design systems", "Accessibility", "Rendering performance"],

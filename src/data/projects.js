@@ -6,15 +6,17 @@
  */
 const seedProjects = [
     {
-        slug: "ANI-concert",
+        slug: "ani-concert",
         title: "ani-concert",
         description: "Ani-Concert is a web application that allows users to explore and discover anirudh concerts, view concert details, upcoming shows and purchase tickets online.",
         thumbnail: "/images/projects/ani-concert.png",
-        technologies: [ "HTML", "CSS", "JavaScript", "Spring Boot",  ],
+        technologies: [ "HTML", "CSS", "JavaScript"  ],
         contributorIds: ["m1", "m2", "m3"],
         categories: ["Web Applications", "Full-Stack Applications"],
         featured: true,
         year: "2026",
+        liveDemoUrl : "https://ani-concert.vercel.app/",
+        githubUrl : "https://github.com/JManishkanna/ANI-concert",
         detail: {
             overview: "Ani-Concert is a web application that allows users to explore and discover anirudh concerts, view concert details, upcoming shows and purchase tickets online.",
             problem: "The teams we built this for were watching four tabs and a chat channel at the same time. When something broke, the incident narrative was reconstructed from scrollback, and the same failure reappeared a month later because nobody had written down the fix.",
@@ -32,6 +34,7 @@ const seedProjects = [
             ],
         },
     },
+<<<<<<< HEAD
 
 
 {
@@ -159,6 +162,36 @@ const seedProjects = [
     //         ],
     //     },
     // },
+=======
+    {
+        slug: "theater-admin",
+        title: "Theater Admin",
+        description: "A web application for managing theater operations, including show schedules, ticket sales, parking bookings , screen viewing , and venue management.",
+        thumbnail: "/images/projects/cineflow.png",
+        technologies: ["React", "Node.js", "Express",],
+        contributorIds: ["m1"],
+        categories: ["Frontend Systems", "Developer Tools"],
+        featured: true,
+        year: "2026",
+        liveDemoUrl : "https://cineflow-65jnp7x3o-jmanishkannas-projects.vercel.app/",
+        githubUrl : "https://github.com/JManishkanna/mj",
+        detail: {
+            overview: "ShardAPI fronts several customer databases behind one API surface. Requests carry a tenant identity, and the gateway routes, isolates, throttles and audits them without any consumer needing to know where the data physically lives.",
+            problem: "Per-customer deployments were multiplying. Every bug fix had to be applied N times, and there was no honest answer to 'show me everything tenant B touched last week'.",
+            solution: "Tenant resolution happens in a single filter that binds the identity to the request context, so downstream code cannot accidentally read another tenant. Connection pools are per-tenant and capped, and every access is written to an append-only audit stream.",
+            keyFeatures: [
+                "Filter-level tenant binding so isolation cannot be bypassed by application code",
+                "Per-tenant connection pools with hard ceilings and backpressure",
+                "Token-bucket rate limiting backed by Redis",
+                "Append-only audit log queryable by tenant, actor and time range",
+            ],
+            contributions: [
+
+                { memberId: "m1", note:" designed the UI/UX for the admin panel and  built the frontend components" },
+            ],
+        },
+    },
+>>>>>>> 8995b4629c3295d899669910efd468bdb177c1da
     // {
     //     slug: "verdant-cart",
     //     title: "VerdantCart",
