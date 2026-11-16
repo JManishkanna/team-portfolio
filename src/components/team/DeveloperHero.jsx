@@ -43,7 +43,7 @@
 
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight,Mail,MapPin,Code2} from "lucide-react";
 
 import { ActionButton } from "../common/ActionButton";
 import { SocialLinks } from "../common/SocialLinks";
@@ -224,6 +224,49 @@ export function DeveloperHero({ member }) {
                     >
               portfolio
             </ActionButton>
+
+            {/* LinkedIn Button */}
+            <ActionButton
+  to={member.linkedin}
+  style={{
+    backgroundColor: "#0A66C2",
+    color: "#FFFFFF",
+    border: "none",
+  }}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8 10H5v9h3v-9Zm-.5-4.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5ZM19 13.5c0-2.5-1.3-3.7-3.2-3.7-1.5 0-2.2.8-2.6 1.4V10h-3v9h3v-5c0-1.3.3-2.1 1.5-2.1s1.3 1 1.3 2.1v5h3v-5.5Z"/>
+  </svg>
+  LinkedIn
+</ActionButton>
+
+
+{/* GitHub Button */}
+<ActionButton
+  to={member.github}
+  style={{
+    backgroundColor: "#24292F",
+    color: "#FFFFFF",
+    border: "none",
+  }}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.52-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.73 0c2.19-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+  </svg>
+  GitHub
+</ActionButton>
          
           </motion.div>
 
