@@ -67,8 +67,8 @@ npm run dev
 
 | URL | What |
 | --- | --- |
-| `http://localhost:5173/` | dev server, hot reload |
-| `http://<your-lan-ip>:5173/` | same app on your phone (host is open by default) |
+| `http://localhost:5111/` | dev server, hot reload |
+| `http://<your-lan-ip>:5111/` | same app on your phone (host is open by default) |
 
 The dev server is configured in [`vite.config.js`](./vite.config.js).
 
@@ -78,19 +78,19 @@ The whole point of the site is that each developer has their own page. Open
 these directly — they must render three *different* pages, not one template:
 
 ```
-http://localhost:5173/team/manish
-http://localhost:5173/team/aarav
-http://localhost:5173/team/sanjay
+http://localhost:5111/team/manish
+http://localhost:5111/team/aarav
+http://localhost:5111/team/sanjay
 ```
 
 Then the nested routes, and refresh each one to confirm deep-linking survives a
 hard reload:
 
 ```
-http://localhost:5173/team/manish/projects
-http://localhost:5173/team/aarav/contact
-http://localhost:5173/project/pulseboard
-http://localhost:5173/team/not-a-real-person   ← must show the custom 404, never a blank page
+http://localhost:5111/team/manish/projects
+http://localhost:5111/team/aarav/contact
+http://localhost:5111/project/pulseboard
+http://localhost:5111/team/not-a-real-person   ← must show the custom 404, never a blank page
 ```
 
 ---
@@ -138,7 +138,7 @@ Run it **before** `npm run build` so the files land in `dist/`. Without
 | Command | Does |
 | --- | --- |
 | `npm install` | install pinned dependencies |
-| `npm run dev` | dev server with HMR on `:5173` |
+| `npm run dev` | dev server with HMR on `:5111` |
 | `npm run build` | type-check then production bundle into `dist/` |
 | `npm run preview` | serve the built `dist/` on `:4173` |
 | `npm run typecheck` | `tsc -p tsconfig.json` only, no emit |

@@ -32,6 +32,107 @@ const seedProjects = [
             ],
         },
     },
+
+
+{
+    slug: "e-commerce-platform",
+    title: "E-Commerce Platform",
+    description: "A feature-rich e-commerce platform built with Laravel and MySQL, supporting customer shopping, seller management, product administration, secure payments and order processing.",
+    thumbnail: "/images/projects/e-commerce.svg",
+    technologies: [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "REST API",
+        "Stripe",
+        "Postman",
+        "Git"
+    ],
+    contributorIds: ["m2"],
+    categories: ["Web Development", "E-Commerce", "Backend Development"],
+    featured: true,
+    year: "2023",
+    detail: {
+        overview: "Developed an e-commerce application that allows customers to browse products, manage their accounts, add products to their wishlist, place orders and make online payments. The platform also includes dedicated admin and seller management modules.",
+        
+        problem: "Managing multiple product categories, sellers, customer orders, payments and administrative operations through a single platform required a centralized and scalable application.",
+        
+        solution: "Implemented Laravel-based backend modules with MySQL database integration, REST APIs and role-based functionality. Integrated Stripe payment processing and developed administrative features to simplify product, seller and order management.",
+        
+        keyFeatures: [
+            "Customer registration, login and dashboard management",
+            "Product listing, search, wishlist and shopping functionality",
+            "Stripe payment gateway integration and payment issue handling",
+            "Order placement, cancellation and order management",
+            "Admin dashboard for managing products, categories, users and orders",
+            "Seller registration, product management and revenue sharing",
+            "Region-based product pricing and shipping management",
+            "Custom two-factor authentication implementation"
+        ],
+        
+        contributions: [
+            {
+                memberId: "m2",
+                note: "Developed Laravel backend modules, REST APIs, MySQL database operations, customer and admin functionalities, payment integration and application enhancements."
+            }
+        ]
+    }
+},
+
+
+{
+    slug: "resume-builder",
+    title: "Online Resume Builder",
+    description: "An online resume builder application that enables users to create, customize and download professional resumes and cover letters using predefined templates.",
+    thumbnail: "/images/projects/resume-builder.svg",
+    technologies: [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Angular",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "REST API",
+        "Postman",
+        "Git"
+    ],
+    contributorIds: ["m2"],
+    categories: ["Web Development", "SaaS", "Backend Development"],
+    featured: true,
+    year: "2023",
+    detail: {
+        overview: "Developed an online resume builder platform where users can create professional resumes and cover letters using customizable templates. The application provides resume editing, design customization, subscription and PDF download functionalities.",
+        
+        problem: "Creating professional resumes with different layouts and designs manually can be time-consuming. Users needed a simple platform to build, customize and download resumes without advanced design skills.",
+        
+        solution: "Developed Laravel backend modules and REST APIs integrated with a MySQL database to manage users, templates, resume sections, subscriptions and payment-related operations. Supported frontend integration for dynamic resume customization and PDF generation.",
+        
+        keyFeatures: [
+            "User registration, login and profile management",
+            "Predefined resume templates and categories",
+            "Dynamic resume creation and editing",
+            "Resume section management and customization",
+            "Font, background, layout and design customization",
+            "Cover letter creation functionality",
+            "Free first resume creation with paid subscription functionality",
+            "Payment and subscription management",
+            "Resume preview and PDF download",
+            "Admin dashboard for managing users, templates, categories, banners and payments"
+        ],
+        
+        contributions: [
+            {
+                memberId: "m2",
+                note: "Developed Laravel backend modules, REST APIs, MySQL database operations, admin functionalities, resume management features and frontend API integration. Tested APIs using Postman."
+            }
+        ]
+    }
+}
+
     // {
     //     slug: "shard-api",
     //     title: "ShardAPI",

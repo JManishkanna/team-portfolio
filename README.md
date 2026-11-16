@@ -26,7 +26,7 @@ npm install
 npm run dev
 ```
 
-The development server runs at `http://localhost:5173`.
+The development server runs at `http://localhost:5111`.
 
 Create a production build with:
 
