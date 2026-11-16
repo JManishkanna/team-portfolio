@@ -211,7 +211,7 @@ export function DeveloperHero({ member }) {
                     member.slug === "manishkanna-j"
                     ? "https://mephisto-engine.vercel.app/"
                     : member.slug === "sivakumar-a"
-                    ? "https://www.linkedin.com/in/manish-kanna-j-604b88298/"
+                    ? "https://portfolio-three-black-diphmaa6gn.vercel.app/"
                     : "https://www.youtube.com/"
                 }
                 // variant="ghost"
